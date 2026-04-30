@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(/usr/bin/python3 -m http.server 8765)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8765/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8765/assets/go-virtual-cards.mp4)",
+      "Bash(curl -s -o /dev/null -w \"html=%{http_code} \" http://localhost:8765/index.html)",
+      "Bash(curl -s -o /dev/null -w \"mp4=%{http_code} \" http://localhost:8765/assets/go-virtual-cards.mp4)",
+      "Bash(curl -s -o /dev/null -w \"png=%{http_code}\\\\n\" http://localhost:8765/assets/card-1.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/design/Downloads/0.png\")",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/design/Downloads/Frame 2147228385.png\" \"/Users/design/Downloads/Group 2085662356.png\" \"/Users/design/Downloads/Frame 2147228384.png\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{size_download}\\\\n\" http://localhost:8765/assets/hero-bg.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/design/Downloads/Group 3.png\" \"/Users/design/Downloads/Group 2085662123.png\")",
+      "Bash(sips --cropToHeightWidth 334 340 \"/Users/design/Documents/kai website/assets/logo1-full.png\" --out \"/Users/design/Documents/kai website/assets/logo1-icon.png\")",
+      "Bash(sips --cropOffset 0 0 -c 334 340 \"/Users/design/Downloads/Group 3.png\" --out \"/Users/design/Documents/kai website/assets/logo1-icon.png\")",
+      "Bash(sips -c 334 320 --cropOffset 0 0 \"/Users/design/Downloads/Group 3.png\" --out /tmp/test1.png)",
+      "Bash(sips -s format png \"/Users/design/Documents/kai website/assets/dashboard.png\" --out \"/tmp/dashboard-flat.png\")",
+      "Bash(/usr/bin/python3)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/design/Downloads/Frame 2147228387.png\" \"/Users/design/Downloads/pexels-kirandeepsingh-35036698.jpg\")",
+      "Bash(grep -n \"html, body\\\\|^\\\\s*body {\" \"/Users/design/Documents/kai website/about.html\")",
+      "Bash(npx --version)",
+      "Bash(brew --version)",
+      "Bash(grep -oE '\\\\$[0-9,]+' \"/Users/design/Downloads/Group 2085662358.svg\")",
+      "Bash(grep -oE 'data:image/[a-z]+;base64,[A-Za-z0-9+/=]{20}' \"/Users/design/Downloads/Group 2085662358.svg\")",
+      "Bash(/usr/bin/python3 -c ':*)",
+      "Bash(ls -la \"/Users/design/Documents/kai website/assets/dashboard.svg\" \"/Users/design/Documents/kai website/assets/dashboard-img-\"*)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/design/Documents/kai website/assets/dashboard-img-0.png\")",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/design/Documents/kai website/assets/dashboard-img-1.jpeg\")",
+      "Bash(sips --resampleWidth 100 \"/Users/design/Documents/kai website/assets/dashboard-img-0.png\" --out \"/Users/design/Documents/kai website/assets/dashboard-img-0.png\")",
+      "Bash(sips -s format jpeg -s formatOptions 70 --resampleWidth 200 \"/Users/design/Documents/kai website/assets/dashboard-img-1.jpeg\" --out \"/Users/design/Documents/kai website/assets/dashboard-img-1.jpeg\")",
+      "Bash(ls -la \"/Users/design/Documents/kai website/assets/dashboard-img-\"*)",
+      "Bash(python3 -c ':*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3 -c \"from rembg import remove; print\\('rembg OK'\\)\")",
+      "Bash(python3)",
+      "Bash(sort -k9)"
+    ]
+  }
+}
