@@ -595,134 +595,100 @@
       .section-figma .figma-img { max-width: 100%; }
     }
 
-    /* ─── CFG · Configured to your needs (1:1 rebuild from flat) ────── */
-    /* Source PNG: 3360×2231, bg #F5F3EF.
-       All positions/sizes expressed as % of frame to match source exactly. */
+
+    /* ─── CFG Section ───────────────────────────────────────── */
     .cfg {
-      width: 100%;
       background: #F5F3EF;
+      padding: 90px 60px 110px;
       display: flex;
       justify-content: center;
-      padding: 0;
     }
-    .cfg-frame {
-      position: relative;
+    .cfg-inner {
       width: 100%;
-      max-width: 1680px;
-      container-type: inline-size;
-      aspect-ratio: 3360 / 2231;
+      max-width: 1080px;
+      display: flex;
+      flex-direction: column;
     }
-
-    /* Title — y=306, x=407, height 108 source px */
     .cfg-title {
-      position: absolute;
-      top: 13.72%;          /* 306/2231 */
-      left: 12.11%;         /* 407/3360 */
-      width: 52%;
-      margin: 0;
       font-family: var(--font-display);
-      font-size: 55px;
-      font-weight: 500;
-      line-height: 1;
-      letter-spacing: -0.01em;
+      font-size: 52px;
+      font-weight: 600;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
       color: #0A0A0A;
-      white-space: nowrap;
+      margin: 0 0 16px;
     }
-
-    /* Lede — y=500, x=406, line-height 70 source px (~3.13% of frame width) */
     .cfg-lede {
-      position: absolute;
-      top: 26%;             /* added breathing room from title */
-      left: 12.08%;
-      width: 60%;
-      margin: 0;
       font-family: var(--font-display);
-      font-size: 24px;
+      font-size: 18px;
       font-weight: 400;
-      line-height: 1.4;
-      color: #364153;
+      line-height: 1.6;
+      color: #4A5565;
+      margin: 0 0 48px;
     }
-
-    /* Art — square box; x=1149, y=896, width 1073 source px */
-    .cfg-art {
-      position: absolute;
-      top: 36.98%;          /* aligned with FLEXIBLE heading */
-      left: 34.20%;         /* 1149/3360 */
-      width: 31.94cqw;      /* 1073/3360 of frame width */
-      height: 31.94cqw;
-      border-radius: 4.5%;
+    .cfg-row {
+      display: flex;
+      align-items: stretch;
+      gap: 48px;
+    }
+    .cfg-img {
+      flex: 1;
+      border-radius: 20px;
       overflow: hidden;
       background: #DDE4E2;
+      position: relative;
+      aspect-ratio: 1040 / 450;
     }
-    .cfg-art-video {
-      display: block;
+    .cfg-img video,
+    .cfg-img img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+      transform: scale(1.12);
     }
-
-    /* Bullets column — x=2410, y=825 (FLEXIBLE caps top) */
     .cfg-bullets {
-      position: absolute;
-      top: 36.98%;          /* 825/2231 */
-      left: 71.73%;         /* 2410/3360 */
-      width: 16%;           /* ~537/3360 */
+      flex: 0 0 270px;
       display: flex;
       flex-direction: column;
-      gap: 2.22cqw;
+      gap: 28px;
     }
-    .cfg-bullet h4 {
+    .cfg-bullet-label {
       font-family: var(--font-display);
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 1.3;
-      letter-spacing: 0.06em;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
       color: #0A0A0A;
-      margin: 0 0 0.11cqw 0;
+      margin: 0 0 6px;
     }
-    .cfg-bullet p {
+    .cfg-bullet-text {
       font-family: var(--font-display);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 400;
-      line-height: 1.5;
+      line-height: 1.55;
       color: #4A5565;
       margin: 0;
     }
     .cfg-link {
       font-family: var(--font-display);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
       color: #0A0A0A;
       text-decoration: underline;
       text-underline-offset: 3px;
-      align-self: flex-start;
-      margin-top: 1.4cqw;
+      margin-top: 8px;
+      display: inline-block;
     }
     .cfg-link:hover { opacity: 0.7; }
-
-    /* Mobile stack */
-    @media (max-width: 880px) {
-      .cfg-frame {
-        aspect-ratio: auto;
-        padding: 60px 24px 80px;
-        container-type: normal;
-      }
-      .cfg-title,
-      .cfg-lede,
-      .cfg-art,
-      .cfg-bullets {
-        position: static;
-        transform: none;
-        width: 100%;
-        max-width: 100%;
-      }
-      .cfg-title { font-size: 36px; white-space: normal; margin-bottom: 16px; }
+    @media (max-width: 800px) {
+      .cfg { padding: 60px 24px 80px; }
+      .cfg-title { font-size: 34px; }
       .cfg-lede { font-size: 16px; margin-bottom: 32px; }
-      .cfg-art { aspect-ratio: 1/1; max-width: 460px; margin: 0 auto 40px; border-radius: 24px; }
-      .cfg-bullets { gap: 32px; max-width: 460px; margin: 0 auto; }
-      .cfg-bullet h4 { font-size: 13px; }
-      .cfg-bullet p { font-size: 14px; }
-      .cfg-link { font-size: 14px; }
+      .cfg-row { flex-direction: column; gap: 32px; }
+      .cfg-bullets { flex: none; width: 100%; }
     }
 
     /* ═══ KAI SECTIONS (1 · 2 · 3) ═══════════════════════════ */
@@ -3329,32 +3295,35 @@
 </div>
 
 
-<!-- ═══ SECTION 1 · Configured to your needs (rebuilt 1:1) ════════════ -->
+
+
+<!-- ═══ CFG · A responsive layer ════════════════════════════════ -->
 <section class="cfg" id="configured">
-  <div class="cfg-frame">
+  <div class="cfg-inner">
 
     <h2 class="cfg-title">A responsive layer that<br>coexists with your life.</h2>
 
     <p class="cfg-lede">Built for a world where financial moves happen in real time,<br>where AI isn't an add-on or a chatbot, but a native participant<br>that understands intent and acts across all asset classes.</p>
 
-    <div class="cfg-art">
-      <video class="cfg-art-video" src="assets/kai-art.mp4" autoplay muted loop playsinline preload="auto" aria-label="Animated dollar"></video>
-    </div>
-
-    <div class="cfg-bullets">
-      <div class="cfg-bullet">
-        <h4>Traditional Banking</h4>
-        <p>Fiat accounts, stock trading, spending pockets and savings accounts.</p>
+    <div class="cfg-row">
+      <div class="cfg-img">
+        <video src="assets/kai-loop.mp4" autoplay muted loop playsinline style="display:block;width:100%;height:100%;object-fit:cover;"></video>
       </div>
-      <div class="cfg-bullet">
-        <h4>Digital assets</h4>
-        <p>Direct access to markets and liquidity without leaving the app, as well as crypto-backed debit cards.</p>
+      <div class="cfg-bullets">
+        <div class="cfg-bullet">
+          <p class="cfg-bullet-label">Traditional Banking</p>
+          <p class="cfg-bullet-text">Fiat accounts, stock trading, spending pockets and savings accounts.</p>
+        </div>
+        <div class="cfg-bullet">
+          <p class="cfg-bullet-label">Digital assets</p>
+          <p class="cfg-bullet-text">Direct access to markets and liquidity without leaving the app, as well as crypto-backed debit cards.</p>
+        </div>
+        <div class="cfg-bullet">
+          <p class="cfg-bullet-label">Execution</p>
+          <p class="cfg-bullet-text">A system built to act on your intent, not just show you data.</p>
+        </div>
+        <a class="cfg-link" href="#">Learn more about our tech</a>
       </div>
-      <div class="cfg-bullet">
-        <h4>Execution</h4>
-        <p>A system built to act on your intent, not just show you data.</p>
-      </div>
-      <a class="cfg-link" href="#">Learn more about our tech</a>
     </div>
 
   </div>
@@ -3442,7 +3411,7 @@
 
     <div class="kai-sec-3-grid">
       <div class="kai-card reveal">
-        <div class="kai-card-visual"><img src="assets/Frame 2147228373.png" alt="" /></div>
+        <div class="kai-card-visual"><img src="assets/Frame 2147228373.png?v=2" alt="" /></div>
         <div class="kai-card-caption">
           <h4>Automations</h4>
           <p>Native AI agents execute multi-step financial moves and manage treasuries based on natural language commands.</p>
