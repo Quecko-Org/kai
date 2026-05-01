@@ -479,7 +479,58 @@
       .hero-title { font-size: clamp(36px, 5vw, 60px); }
       .floating-disclaimer { padding: 0 40px; }
     }
+    .desktopnav{
+      display: none;
+    }
     @media (max-width: 900px) {
+      .desktopnav{
+        display: block;
+      }
+      .phonenav{
+        display: none;
+      }
+      .newinnner{
+        display: flex;
+        flex-direction: column;
+                gap: 30px;
+align-items: center;
+justify-content: center;
+      }
+      .cta-card {
+        flex-direction: column;
+        padding: 20px !important;
+      }
+      .desktopnav{
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+      }
+      .innernavv{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .hero-bg {
+    position: absolute;
+    inset: 0;
+    top: -76px;
+      }
+      nav {
+        height: 130px;
+      }
+      .nav-linkss{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        /* justify-content: space-between;
+        width: 100%; */
+      }
+      .nav-linkss a{
+        color: rgba(19, 31, 31, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+      }
       .hero-content { padding: 80px 24px 0; }
       .hero-title { white-space: normal; font-size: clamp(32px, 7vw, 48px); }
       .hero-cta { flex-direction: column; width: 100%; max-width: 320px; }
@@ -2045,8 +2096,11 @@
 
     .footer-links {
       display: grid;
-      grid-template-columns: repeat(3, 140px);
+      grid-template-columns: 1fr;
       gap: 0 40px;
+    }
+    @media (max-width: 991px) {
+      
     }
 
     .footer-col h4 {
@@ -3255,7 +3309,27 @@
 </div>
 
 <!-- ═══ NAV ════════════════════════════════════════════ -->
-<nav id="main-nav">
+<nav class="desktopnav" id="main-nav">
+  <div class="newinnner">
+ <div class="innernavv">
+  <a href="index.html" style="text-decoration:none;">
+    <div class="nav-logo-wrap" id="navLogoWrap">
+      <img class="nav-logo" id="navLogo" src="assets/logo1-full.png" alt="Kai" />
+    </div>
+  </a>
+    <div class="nav-actions">
+    <button class="nav-signup">Join the sale</button>
+  </div>
+  </div>
+  <ul class="nav-linkss">
+    <a href="about.html">About</a>
+ <a href="#features">Features</a>
+  <a href="#roadmap">Roadmap</a>
+  </ul>
+  </div>
+ 
+</nav>
+<nav class="phonenav" id="main-nav">
   <a href="index.html" style="text-decoration:none;">
     <div class="nav-logo-wrap" id="navLogoWrap">
       <img class="nav-logo" id="navLogo" src="assets/logo1-full.png" alt="Kai" />
