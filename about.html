@@ -293,6 +293,8 @@
       inset: 0;
       background: linear-gradient(to top, rgba(243,241,237,0.95) 0%, rgba(243,241,237,0.55) 40%, transparent 60%);
       display: flex;
+          pointer-events: none;
+
       align-items: flex-end;
       padding: 28px;
       opacity: 0;
@@ -302,7 +304,7 @@
     .team-leader-card:hover .team-leader-overlay { opacity: 1; }
     .team-leader-desc {
       font-family: var(--font-display);
-      font-size: 17px;
+      font-size: 13px;
       font-weight: 400;
       line-height: 1.5;
       color: rgba(19,31,31,0.9);
@@ -409,6 +411,20 @@
       .team-grid { grid-template-columns: repeat(4, 1fr); }
     }
     @media (max-width: 900px) {
+      .team-leaders {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 56px;
+}
+         .team-leader-desc {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(19,31,31,0.9);
+      margin: 0;
+    }
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       .about-hero { padding: 48px 24px 0; }
@@ -543,10 +559,12 @@
   <div class="team-leaders">
     <div class="team-leader-card reveal">
       <div class="team-leader-photo-wrap">
+        <a class="team-leader-name" href="https://www.linkedin.com/in/gadi-davidyan-28a11434/" target="_blank" rel="noopener">
         <img src="assets/Gadi Davidyan.png?v=2" alt="Gadi Davidyan">
+        </a>
         <div class="team-leader-overlay">
           <p class="team-leader-desc">A former CIO at a major bank who has spent years building core banking infrastructure and digital banks.
-            Named one of the world's top 100 CIOs.Advisory board member to fintech and cybersecurity startups.
+         <br>   Named one of the world's top 100 CIOs.Advisory board member to fintech and cybersecurity startups.
           </p>
         </div>
       </div>
@@ -555,7 +573,9 @@
     </div>
     <div class="team-leader-card reveal d1">
       <div class="team-leader-photo-wrap">
+        <a class="team-leader-name" href="https://www.linkedin.com/in/youval-fabri-0b38843/" target="_blank" rel="noopener">
         <img src="assets/Youval Fabri.png?v=2" alt="Youval Fabri">
+        </a>
         <div class="team-leader-overlay">
           <p class="team-leader-desc">A seasoned entrepreneur and executive advisor at the intersection of digital assets and global finance, specializing in cross-border regulatory engagement.</p>
         </div>
@@ -565,7 +585,10 @@
     </div>
     <div class="team-leader-card reveal d2">
       <div class="team-leader-photo-wrap">
-        <img src="assets/Lina Fabri.png?v=2" alt="Lina Fabri">
+       <a class="team-leader-name" href="https://www.linkedin.com/in/linafabri/" target="_blank" rel="noopener">
+           <img src="assets/Lina Fabri.png?v=2" alt="Lina Fabri" class="imgggleass">
+        </a>
+       
         <div class="team-leader-overlay">
           <p class="team-leader-desc">Global product executive with proven track record of building robust AI driven payment platforms.</p>
         </div>
