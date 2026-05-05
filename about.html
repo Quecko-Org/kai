@@ -1,776 +1,1268 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kai — About</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kai — About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    :root {
-      --dark-bg: #0d1a1a;
-      --dark-text: #f0f4f3;
-      --dark-border: rgba(255,255,255,0.07);
-      --dark-muted: rgba(240,244,243,0.5);
-      --light-bg: #f3f1ed;
-      --light-text: #131f1f;
-      --light-muted: rgba(19,31,31,0.6);
-      --font-display: 'Clash Display', sans-serif;
-      --font-body: 'Clash Display', sans-serif;
-    }
+      :root {
+        --dark-bg: #0d1a1a;
+        --dark-text: #f0f4f3;
+        --dark-border: rgba(255, 255, 255, 0.07);
+        --dark-muted: rgba(240, 244, 243, 0.5);
+        --light-bg: #f3f1ed;
+        --light-text: #131f1f;
+        --light-muted: rgba(19, 31, 31, 0.6);
+        --font-display: "Clash Display", sans-serif;
+        --font-body: "Clash Display", sans-serif;
+      }
 
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--light-bg);
-      color: var(--light-text);
-      font-family: var(--font-body);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--light-bg);
+        color: var(--light-text);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
 
-    /* ─── ANNOUNCEMENT ─────────────────────────────── */
-    .hero-announcement {
-      position: relative;
-      z-index: 5;
-      width: 100%;
-      background: #ffffff;
-      text-align: center;
-      padding: 10px 24px;
-      font-family: var(--font-display);
-      font-size: 15px;
-      font-weight: 400;
-      color: #131f1f;
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-    }
-    .hero-announcement strong { font-weight: 600; }
+      /* ─── ANNOUNCEMENT ─────────────────────────────── */
+      .hero-announcement {
+        position: relative;
+        z-index: 5;
+        width: 100%;
+        background: #ffffff;
+        text-align: center;
+        padding: 10px 24px;
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 400;
+        color: #131f1f;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      }
+      .hero-announcement strong {
+        font-weight: 600;
+      }
 
-    /* ─── NAV ─────────────────────────────────────────── */
-    nav {
-      position: sticky;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      height: 64px;
-    }
-    nav.scrolled {
-      background: rgba(255,255,255,0.45) !important;
-      backdrop-filter: saturate(180%) blur(20px) !important;
-      -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
-      border-bottom: 1px solid rgba(0,0,0,0.05) !important;
-    }
-    .nav-logo-wrap {
-      height: 28px;
-      display: inline-flex;
-      align-items: center;
-      overflow: hidden;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-    .nav-logo { height: 100%; width: auto; display: block; pointer-events: none; user-select: none; }
-    .nav-links {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      gap: 36px;
-      list-style: none;
-      font-size: 14px;
-      font-weight: 400;
-      margin: 0;
-      padding: 0;
-    }
-    .nav-links a {
-      color: rgba(19,31,31,0.7);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--light-text); }
-    .nav-links a.active { font-weight: 500; }
-    nav.scrolled .nav-links a { color: rgba(19,31,31,0.7); }
-    nav.scrolled .nav-links a:hover,
-    nav.scrolled .nav-links a.active { color: var(--light-text); }
-    .nav-actions { display: flex; gap: 8px; align-items: center; }
-    .nav-signup {
-      background: white;
-      border: none;
-      color: var(--light-text);
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 500;
-      padding: 12px 24px;
-      border-radius: 100px;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.2s;
-      letter-spacing: 0.01em;
-    }
-    .nav-signup:hover { opacity: 0.9; transform: translateY(-1px); }
-    nav.scrolled .nav-signup { background: var(--light-text); color: #fff; }
+      /* ─── NAV ─────────────────────────────────────────── */
+      nav {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        height: 64px;
+      }
+      nav.scrolled {
+        background: rgba(255, 255, 255, 0.45) !important;
+        backdrop-filter: saturate(180%) blur(20px) !important;
+        -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+      }
+      .nav-logo-wrap {
+        height: 28px;
+        display: inline-flex;
+        align-items: center;
+        overflow: hidden;
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+      .nav-logo {
+        height: 100%;
+        width: auto;
+        display: block;
+        pointer-events: none;
+        user-select: none;
+      }
+      .nav-links {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 36px;
+        list-style: none;
+        font-size: 14px;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-links a {
+        color: rgba(19, 31, 31, 0.7);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--light-text);
+      }
+      .nav-links a.active {
+        font-weight: 500;
+      }
+      nav.scrolled .nav-links a {
+        color: rgba(19, 31, 31, 0.7);
+      }
+      nav.scrolled .nav-links a:hover,
+      nav.scrolled .nav-links a.active {
+        color: var(--light-text);
+      }
+      .nav-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .nav-signup {
+        background: white;
+        border: none;
+        color: var(--light-text);
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 12px 24px;
+        border-radius: 100px;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        letter-spacing: 0.01em;
+      }
+      .nav-signup:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+      nav.scrolled .nav-signup {
+        background: var(--light-text);
+        color: #fff;
+      }
 
-    /* ─── HERO ────────────────────────────────────────── */
-    .about-hero {
-      position: relative;
-      width: 100%;
-      padding: 80px 60px 0;
-      max-width: 1280px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .about-hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(34px, 4vw, 60px);
-      font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: var(--light-text);
-      margin: 0 auto 56px auto;
-      max-width: 1100px;
-      text-wrap: balance;
-    }
-    /* Hero image — fits content frame edges, expands to full bleed on scroll */
-    .about-hero-image-stage {
-      position: relative;
-      width: 100%;
-      height: clamp(280px, 34vw, 460px);
-      margin: 0 auto;
-    }
-    .about-hero-image {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      width: 100%;
-      height: 100%;
-      border-radius: 24px;
-      overflow: hidden;
-      background: #d8dfd9 url("assets/about-hero.png") center/cover no-repeat;
-      transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: width, border-radius;
-    }
-    .about-hero-image.expanded {
-      width: 100vw;
-      border-radius: 0;
-    }
-          @media (max-width: 900px) {
-              .footer-top {
+      /* ─── HERO ────────────────────────────────────────── */
+      .about-hero {
+        position: relative;
+        width: 100%;
+        padding: 80px 60px 0;
+        max-width: 1280px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .about-hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(34px, 4vw, 60px);
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        color: var(--light-text);
+        margin: 0 auto 56px auto;
+        max-width: 1100px;
+        text-wrap: balance;
+      }
+      /* Hero image — fits content frame edges, expands to full bleed on scroll */
+      .about-hero-image-stage {
+        position: relative;
+        width: 100%;
+        height: clamp(280px, 34vw, 460px);
+        margin: 0 auto;
+      }
+      .about-hero-image {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        border-radius: 24px;
+        overflow: hidden;
+        background: #d8dfd9 url("assets/about-hero.png") center/cover no-repeat;
+        transition:
+          width 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+          border-radius 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: width, border-radius;
+      }
+      .about-hero-image.expanded {
+        width: 100vw;
+        border-radius: 0;
+      }
+      @media (max-width: 900px) {
+        .hero-announcement {
+          font-size: 12px;
+        }
+        .footer-top {
           flex-direction: column;
           gap: 30px;
         }
         footer {
           padding: 20px !important;
         }
-          }
-    .about-hero-disclaimer {
-      position: absolute;
-      left: 50%;
-      bottom: 28px;
-      transform: translateX(-50%);
-      max-width: min(90%, 1080px);
-      padding: 10px 28px;
-      background: rgba(26,26,26,0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 100px;
-      border: 1px solid rgba(255,255,255,0.15);
-      font-family: var(--font-display);
-      font-size: 12.5px;
-      font-weight: 400;
-      line-height: 1.4;
-      color: #ffffff;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      z-index: 3;
-      transition: opacity 0.3s ease;
-    }
-    .about-hero-disclaimer.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    /* ─── ABOUT SECTION ───────────────────────────────── */
-    .about-section {
-      width: 100%;
-      padding: 140px 60px 80px;
-      max-width: 1280px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-    .about-eyebrow {
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--light-muted);
-      margin: 0 0 24px 0;
-      letter-spacing: 0.02em;
-    }
-    .about-heading {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 3.6vw, 48px);
-      font-weight: 500;
-      line-height: 1.06;
-      letter-spacing: -0.015em;
-      color: var(--light-text);
-      margin: 0 auto 28px auto;
-      max-width: 760px;
-      text-wrap: balance;
-    }
-    .about-text {
-      font-family: var(--font-display);
-      font-size: clamp(16px, 1.2vw, 18px);
-      font-weight: 400;
-      line-height: 1.6;
-      color: rgba(19,31,31,0.78);
-      margin: 0 auto;
-      max-width: 720px;
-    }
-
-    /* ─── TEAM ────────────────────────────────────────── */
-    .team-section {
-      width: 100%;
-      padding: 40px 60px 140px;
-      max-width: 1280px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .team-title {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 3vw, 40px);
-      font-weight: 500;
-      line-height: 1.05;
-      letter-spacing: -0.015em;
-      color: var(--light-text);
-      margin: 0 0 64px 0;
-      text-align: center;
-    }
-    /* Leaders row */
-    .team-leaders {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 56px;
-    }
-    .team-leader-card { display: flex; flex-direction: column; }
-    .team-leader-photo-wrap {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #c9d8d5;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .team-leader-photo-wrap img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-    .team-leader-initials {
-      font-family: var(--font-display);
-      font-size: 56px;
-      font-weight: 500;
-      color: rgba(19,31,31,0.25);
-      letter-spacing: 0.02em;
-      position: relative;
-      z-index: 0;
-    }
-    .team-leader-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(243,241,237,0.95) 0%, rgba(243,241,237,0.55) 40%, transparent 60%);
-      display: flex;
-          pointer-events: none;
-
-      align-items: flex-end;
-      padding: 28px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 2;
-    }
-    .team-leader-card:hover .team-leader-overlay { opacity: 1; }
-    .team-leader-desc {
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.5;
-      color: rgba(19,31,31,0.9);
-      margin: 0;
-    }
-    .team-leader-name {
-      font-family: var(--font-display);
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--light-text);
-      text-decoration: none;
-      margin: 0 0 4px 0;
-      display: block;
-      transition: opacity 0.2s;
-    }
-    .team-leader-name:hover { opacity: 0.55; }
-    .team-leader-role {
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--light-muted);
-      margin: 0;
-    }
-    /* Regular team grid */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 36px 20px;
-    }
-    .team-member { display: flex; flex-direction: column; }
-    .team-photo {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #c9d8d5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      color: rgba(19,31,31,0.3);
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-    .team-photo img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-    .team-name {
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.3;
-      color: var(--light-text);
-      text-decoration: none;
-      margin: 0 0 3px 0;
-      display: block;
-      transition: opacity 0.2s;
-    }
-    .team-name:hover { opacity: 0.55; }
-    .team-role {
-      font-family: var(--font-display);
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 1.4;
-      color: var(--light-muted);
-      margin: 0;
-    }
-
-    /* ─── REVEAL ──────────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      filter: blur(4px);
-      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), filter 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-      filter: blur(0);
-    }
-    .reveal.d1 { transition-delay: 0.10s; }
-    .reveal.d2 { transition-delay: 0.20s; }
-    .reveal.d3 { transition-delay: 0.30s; }
-    .reveal.d4 { transition-delay: 0.40s; }
-    .reveal.d5 { transition-delay: 0.50s; }
-    .reveal.d6 { transition-delay: 0.60s; }
-    .reveal.d7 { transition-delay: 0.70s; }
-    .reveal.d8 { transition-delay: 0.80s; }
-    .reveal.d9 { transition-delay: 0.90s; }
-
-    /* ─── RESPONSIVE ──────────────────────────────────── */
-    @media (max-width: 1280px) {
-      .about-hero { padding: 64px 40px 0; }
-      .about-section { padding: 120px 40px 60px; }
-      .team-section { padding: 32px 40px 120px; }
-      .team-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-    @media (max-width: 900px) {
-      .team-leaders {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-bottom: 56px;
-}
-         .team-leader-desc {
-      font-family: var(--font-display);
-      font-size: 10px;
-      font-weight: 400;
-      line-height: 1.5;
-      color: rgba(19,31,31,0.9);
-      margin: 0;
-    }
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .about-hero { padding: 48px 24px 0; }
-      .about-hero-title { margin-bottom: 40px; }
-      .about-section { padding: 80px 24px 40px; }
-      .team-section { padding: 24px 24px 100px; }
-      .team-grid { grid-template-columns: repeat(3, 1fr); gap: 28px 18px; }
-      .team-photo { font-size: 24px; border-radius: 12px; }
-      .team-title { margin-bottom: 36px; }
-      .about-hero-disclaimer { font-size: 11px; padding: 9px 16px; white-space: normal; max-width: 88%; }
-    }
-    @media (max-width: 540px) {
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* ─── FOOTER ──────────────────────────────────────── */
-    footer {
-      background: var(--dark-bg);
-      border-top: 1px solid var(--dark-border);
-      padding: 64px 60px 40px;
-    }
-    .footer-logo {
-      height: 32px;
-      width: auto;
-      display: block;
-      filter: brightness(0) invert(1);
-    }
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 64px;
-    }
-    .footer-brand p {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--dark-muted);
-      line-height: 1.65;
-      margin-top: 16px;
-      max-width: 240px;
-    }
-    .footer-links {
-      display: grid;
-      grid-template-columns: repeat(1, 140px);
-    }
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer-col a {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--dark-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-col a:hover { color: var(--dark-text); }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 32px;
-      border-top: 1px solid var(--dark-border);
-    }
-    .footer-bottom p {
-      font-size: 12px;
-      color: rgba(240,244,243,0.22);
-      font-weight: 300;
-    }
-    .footer-socials { display: flex; gap: 20px; }
-    .footer-socials a {
-      color: rgba(240,244,243,0.3);
-      transition: color 0.2s;
-      display: flex;
-      align-items: center;
-    }
-    .footer-socials a:hover { color: var(--dark-text); }
-  </style>
-</head>
-<body>
-
-<!-- ═══ ANNOUNCEMENT ═══════════════════════════════════════ -->
-<div class="hero-announcement">
-  <span><strong>News!</strong> Kai is raising Series A via Gems</span>
-</div>
-
-<!-- ═══ NAV ════════════════════════════════════════════ -->
-<nav id="main-nav">
-  <a href="index.html" style="text-decoration:none;">
-    <div class="nav-logo-wrap">
-      <img class="nav-logo" src="assets/logo1-full.png" alt="Kai" />
-    </div>
-  </a>
-
-  <ul class="nav-links">
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="index.html#features">Features</a></li>
-    <li><a href="index.html#roadmap">Roadmap</a></li>
-  </ul>
-
-  <div class="nav-actions">
-    <button class="nav-signup">Join the sale</button>
-  </div>
-</nav>
-
-<!-- ═══ HERO ═══════════════════════════════════════════ -->
-<section class="about-hero">
-  <h1 class="about-hero-title reveal"><span style="font-weight:400;">Finance is fragmented</span><br>Kai unifies it.</h1>
-  <div class="about-hero-image-stage">
-    <div class="about-hero-image" id="aboutHeroImage"></div>
-  </div>
-</section>
-
-<!-- ═══ ABOUT SECTION ══════════════════════════════════ -->
-<section class="about-section">
-  <p class="about-eyebrow reveal">About Kai</p>
-  <h2 class="about-heading reveal d2">Banking, reimagined for the AI age.</h2>
-  <p class="about-text reveal d4">
-    Kai isn't an app you open simply to check a balance.<br>
-    It's a responsive layer that coexists with your life.<br>
-    A unified account that consolidates all your assets for immediate, simple, and direct execution.
-  </p>
-</section>
-
-<!-- ═══ TEAM ════════════════════════════════════════════ -->
-<section class="team-section">
-  <h2 class="team-title reveal">Meet the team</h2>
-
-  <!-- ── Leaders ───────────────────────────────────── -->
-  <div class="team-leaders">
-    <div class="team-leader-card reveal">
-      <div class="team-leader-photo-wrap">
-        <a class="team-leader-name" href="https://www.linkedin.com/in/gadi-davidyan-28a11434/" target="_blank" rel="noopener">
-        <img src="assets/Gadi Davidyan.png?v=2" alt="Gadi Davidyan">
-        </a>
-        <div class="team-leader-overlay">
-          <p class="team-leader-desc">A former CIO at a major bank who has spent years building core banking infrastructure and digital banks.
-         <br>   Named one of the world's top 100 CIOs.Advisory board member to fintech and cybersecurity startups.
-          </p>
-        </div>
-      </div>
-      <a class="team-leader-name" href="https://www.linkedin.com/in/gadi-davidyan-28a11434/" target="_blank" rel="noopener">Gadi Davidyan</a>
-      <p class="team-leader-role">Co-CEO</p>
-    </div>
-    <div class="team-leader-card reveal d1">
-      <div class="team-leader-photo-wrap">
-        <a class="team-leader-name" href="https://www.linkedin.com/in/youval-fabri-0b38843/" target="_blank" rel="noopener">
-        <img src="assets/Youval Fabri.png?v=2" alt="Youval Fabri">
-        </a>
-        <div class="team-leader-overlay">
-          <p class="team-leader-desc">A seasoned entrepreneur and executive advisor at the intersection of digital assets and global finance, specializing in cross-border regulatory engagement.</p>
-        </div>
-      </div>
-      <a class="team-leader-name" href="https://www.linkedin.com/in/youval-fabri-0b38843/" target="_blank" rel="noopener">Youval Fabri</a>
-      <p class="team-leader-role">Strategic Advisor</p>
-    </div>
-    <div class="team-leader-card reveal d2">
-      <div class="team-leader-photo-wrap">
-       <a class="team-leader-name" href="https://www.linkedin.com/in/linafabri/" target="_blank" rel="noopener">
-           <img src="assets/Lina Fabri.png?v=2" alt="Lina Fabri" class="imgggleass">
-        </a>
-       
-        <div class="team-leader-overlay">
-          <p class="team-leader-desc">Global product executive with proven track record of building robust AI driven payment platforms.</p>
-        </div>
-      </div>
-      <a class="team-leader-name" href="https://www.linkedin.com/in/linafabri/" target="_blank" rel="noopener">Lina Fabri</a>
-      <p class="team-leader-role">CPO</p>
-    </div>
-  </div>
-
-  <!-- ── Rest of team (5 per row) ─────────────────── -->
-  <div class="team-grid">
-    <div class="team-member reveal">
-      <div class="team-photo"><img src="assets/Eyal Milstein.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/eyal-milstein/" target="_blank" rel="noopener">Eyal Milstein</a>
-      <p class="team-role">CMO</p>
-    </div>
-    <div class="team-member reveal d1">
-      <div class="team-photo"><img src="assets/Galateia Charalampous.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/galateia-charalampous-agathaggelou-2b2492158/" target="_blank" rel="noopener">Galateia Charalampous</a>
-      <p class="team-role">Director, Head of Compliance</p>
-    </div>
-    <div class="team-member reveal d2">
-      <div class="team-photo"><img src="assets/Omri Hanover.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/omri-hanover/" target="_blank" rel="noopener">Omri Hanover</a>
-      <p class="team-role">Head of Digital Assets Solutions</p>
-    </div>
-    <div class="team-member reveal d3">
-      <div class="team-photo"><img src="assets/Ziv Oz-1.png" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/zivoz/" target="_blank" rel="noopener">Ziv Oz</a>
-      <p class="team-role">Head of Marketing</p>
-    </div>
-    <div class="team-member reveal d4">
-      <div class="team-photo"><img src="assets/Salit Levi.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/salitlevi/" target="_blank" rel="noopener">Salit Levi</a>
-      <p class="team-role">Head of Content</p>
-    </div>
-
-    <div class="team-member reveal">
-      <div class="team-photo"><img src="assets/Oron Berkovich.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/oron-berkovich/" target="_blank" rel="noopener">Oron Berkovich</a>
-      <p class="team-role">Product Manager</p>
-    </div>
-    <div class="team-member reveal d1">
-      <div class="team-photo"><img src="assets/Tal Levi.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/tal-levy1/" target="_blank" rel="noopener">Tal Levi</a>
-      <p class="team-role">Product Manager</p>
-    </div>
-    <div class="team-member reveal d2">
-      <div class="team-photo"><img src="assets/Shay Nahari.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/shay-nahari-7082096b/" target="_blank" rel="noopener">Shay Nahari</a>
-      <p class="team-role">Legal Counsel</p>
-    </div>
-    <div class="team-member reveal d3">
-      <div class="team-photo"><img src="assets/Tiffany Ben.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/tiffany-ben-3aa660160/" target="_blank" rel="noopener">Tiffany Ben</a>
-      <p class="team-role">Operations Manager</p>
-    </div>
-    <div class="team-member reveal d4">
-      <div class="team-photo"><img src="assets/Gitai Zakh.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/gitaizakh/" target="_blank" rel="noopener">Gitai Zakh</a>
-      <p class="team-role">Business Development</p>
-    </div>
-
-    <div class="team-member reveal">
-      <div class="team-photo"><img src="assets/Yotam Havivi.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/yotz-er/" target="_blank" rel="noopener">Yotam Havivi</a>
-      <p class="team-role">Creative Director</p>
-    </div>
-    <div class="team-member reveal d1">
-      <div class="team-photo"><img src="assets/Raz Shalem.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/raz-shalem-7411601b4/" target="_blank" rel="noopener">Raz Shalem</a>
-      <p class="team-role">Art Director</p>
-    </div>
-    <div class="team-member reveal d2">
-      <div class="team-photo"><img src="assets/Dror Paz.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/dror-pazvideocreator/" target="_blank" rel="noopener">Dror Paz</a>
-      <p class="team-role">Video Director</p>
-    </div>
-    <div class="team-member reveal d3">
-      <div class="team-photo"><img src="assets/Alon Ben Shimon.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/alon-ben-shimon-817608149/" target="_blank" rel="noopener">Alon Ben Shimon</a>
-      <p class="team-role">AI System Builder</p>
-    </div>
-    <div class="team-member reveal d4">
-      <div class="team-photo"><img src="assets/Or Eitan Rauch.png?v=2" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/oreitanr/" target="_blank" rel="noopener">Or Eitan Rauch</a>
-      <p class="team-role">Social Media Marketing</p>
-    </div>
-
-    <div class="team-member reveal">
-      <div class="team-photo"><img src="assets/David Dadon.png?v=3" alt=""></div>
-      <a class="team-name" href="https://www.linkedin.com/in/david-dadon-2b361723b/" target="_blank" rel="noopener">David Dadon</a>
-      <p class="team-role">UBO</p>
-    </div>
-    <div class="team-member reveal d1">
-      <div class="team-photo"><img src="assets/Liran Yifrah.png?v=2" alt=""></div>
-      <p class="team-name">Liran Yifrah</p>
-      <p class="team-role">UBO</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FOOTER ═════════════════════════════════════════ -->
-<footer id="footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <img class="footer-logo" src="assets/logo1-full.png" alt="Kai" />
-      <p>Financial clarity for everyone. Simple tools, real results.</p>
-    </div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="index.html#features">Features</a></li>
-          <li><a href="index.html#roadmap">Roadmap</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Kai. All rights reserved.</p>
-    <div class="footer-socials">
-      <a href="#" aria-label="Twitter">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M12.6 1.5H14.85L9.9 7.12L15.75 14.5H11.16L7.56 9.82L3.44 14.5H1.18L6.48 8.5L0.875 1.5H5.58L8.83 5.77L12.6 1.5ZM11.82 13.12H13.07L4.84 2.78H3.5L11.82 13.12Z" fill="currentColor"/>
-        </svg>
-      </a>
-      <a href="#" aria-label="LinkedIn">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M13.5 1.5H2.5C1.95 1.5 1.5 1.95 1.5 2.5V13.5C1.5 14.05 1.95 14.5 2.5 14.5H13.5C14.05 14.5 14.5 14.05 14.5 13.5V2.5C14.5 1.95 14.05 1.5 13.5 1.5ZM5.5 12.5H3.5V6.5H5.5V12.5ZM4.5 5.5C3.95 5.5 3.5 5.05 3.5 4.5C3.5 3.95 3.95 3.5 4.5 3.5C5.05 3.5 5.5 3.95 5.5 4.5C5.5 5.05 5.05 5.5 4.5 5.5ZM12.5 12.5H10.5V9.5C10.5 8.67 9.83 8 9 8C8.17 8 7.5 8.67 7.5 9.5V12.5H5.5V6.5H7.5V7.5C7.9 6.9 8.65 6.5 9.5 6.5C11.16 6.5 12.5 7.84 12.5 9.5V12.5Z" fill="currentColor"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // Scroll reveal — stagger elements as they enter the viewport
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
       }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-  reveals.forEach(el => io.observe(el));
+      .about-hero-disclaimer {
+        position: absolute;
+        left: 50%;
+        bottom: 28px;
+        transform: translateX(-50%);
+        max-width: min(90%, 1080px);
+        padding: 10px 28px;
+        background: rgba(26, 26, 26, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        font-family: var(--font-display);
+        font-size: 12.5px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: #ffffff;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        z-index: 3;
+        transition: opacity 0.3s ease;
+      }
+      .about-hero-disclaimer.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
 
-  // Nav scroll bg
-  const nav = document.getElementById('main-nav');
-  function updateNav() {
-    if (window.scrollY > 8) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  }
-  window.addEventListener('scroll', updateNav, { passive: true });
-  updateNav();
+      /* ─── ABOUT SECTION ───────────────────────────────── */
+      .about-section {
+        width: 100%;
+        padding: 140px 60px 80px;
+        max-width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      .about-eyebrow {
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--light-muted);
+        margin: 0 0 24px 0;
+        letter-spacing: 0.02em;
+      }
+      .about-heading {
+        font-family: var(--font-display);
+        font-size: clamp(32px, 3.6vw, 48px);
+        font-weight: 500;
+        line-height: 1.06;
+        letter-spacing: -0.015em;
+        color: var(--light-text);
+        margin: 0 auto 28px auto;
+        max-width: 760px;
+        text-wrap: balance;
+      }
+      .about-text {
+        font-family: var(--font-display);
+        font-size: clamp(16px, 1.2vw, 18px);
+        font-weight: 400;
+        line-height: 1.6;
+        color: rgba(19, 31, 31, 0.78);
+        margin: 0 auto;
+        max-width: 720px;
+      }
 
-  // Hero image expands to full width on scroll + disclaimer fades out
-  const heroImg = document.getElementById('aboutHeroImage');
-  const heroStage = document.querySelector('.about-hero-image-stage');
-  const disclaimer = document.getElementById('aboutDisclaimer');
-  function updateHeroImage() {
-    if (!heroImg || !heroStage) return;
-    const rect = heroStage.getBoundingClientRect();
-    const stageTop = rect.top;
-    // When the top of the stage approaches/passes the top of viewport, expand
-    if (stageTop < 80) {
-      heroImg.classList.add('expanded');
-    } else {
-      heroImg.classList.remove('expanded');
-    }
-    // Hide disclaimer once user scrolls past 30px
-    if (disclaimer) {
-      if (window.scrollY > 30) disclaimer.classList.add('hidden');
-      else disclaimer.classList.remove('hidden');
-    }
-  }
-  window.addEventListener('scroll', updateHeroImage, { passive: true });
-  window.addEventListener('resize', updateHeroImage, { passive: true });
-  updateHeroImage();
-</script>
+      /* ─── TEAM ────────────────────────────────────────── */
+      .team-section {
+        width: 100%;
+        padding: 40px 60px 140px;
+        max-width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .team-title {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 3vw, 40px);
+        font-weight: 500;
+        line-height: 1.05;
+        letter-spacing: -0.015em;
+        color: var(--light-text);
+        margin: 0 0 64px 0;
+        text-align: center;
+      }
+      /* Leaders row */
+      .team-leaders {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 56px;
+      }
+      .team-leader-card {
+        display: flex;
+        flex-direction: column;
+      }
+      .team-leader-photo-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        border-radius: 20px;
+        overflow: hidden;
+        background: #c9d8d5;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .team-leader-photo-wrap img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+      .team-leader-initials {
+        font-family: var(--font-display);
+        font-size: 56px;
+        font-weight: 500;
+        color: rgba(19, 31, 31, 0.25);
+        letter-spacing: 0.02em;
+        position: relative;
+        z-index: 0;
+      }
+      .team-leader-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(243, 241, 237, 0.95) 0%,
+          rgba(243, 241, 237, 0.55) 40%,
+          transparent 60%
+        );
+        display: flex;
+        pointer-events: none;
 
-</body>
+        align-items: flex-end;
+        padding: 28px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2;
+      }
+      .team-leader-card:hover .team-leader-overlay {
+        opacity: 1;
+      }
+      .team-leader-desc {
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: rgba(19, 31, 31, 0.9);
+        margin: 0;
+      }
+      .team-leader-name {
+        font-family: var(--font-display);
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--light-text);
+        text-decoration: none;
+        margin: 0 0 4px 0;
+        display: block;
+        transition: opacity 0.2s;
+      }
+      .team-leader-name:hover {
+        opacity: 0.55;
+      }
+      .team-leader-role {
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--light-muted);
+        margin: 0;
+      }
+      /* Regular team grid */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 36px 20px;
+      }
+      .team-member {
+        display: flex;
+        flex-direction: column;
+      }
+      .team-photo {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #c9d8d5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: rgba(19, 31, 31, 0.3);
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 12px;
+      }
+      .team-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      .team-name {
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.3;
+        color: var(--light-text);
+        text-decoration: none;
+        margin: 0 0 3px 0;
+        display: block;
+        transition: opacity 0.2s;
+      }
+      .team-name:hover {
+        opacity: 0.55;
+      }
+      .team-role {
+        font-family: var(--font-display);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--light-muted);
+        margin: 0;
+      }
+
+      /* ─── REVEAL ──────────────────────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        filter: blur(4px);
+        transition:
+          opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+          filter 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+      }
+      .reveal.d1 {
+        transition-delay: 0.1s;
+      }
+      .reveal.d2 {
+        transition-delay: 0.2s;
+      }
+      .reveal.d3 {
+        transition-delay: 0.3s;
+      }
+      .reveal.d4 {
+        transition-delay: 0.4s;
+      }
+      .reveal.d5 {
+        transition-delay: 0.5s;
+      }
+      .reveal.d6 {
+        transition-delay: 0.6s;
+      }
+      .reveal.d7 {
+        transition-delay: 0.7s;
+      }
+      .reveal.d8 {
+        transition-delay: 0.8s;
+      }
+      .reveal.d9 {
+        transition-delay: 0.9s;
+      }
+      .about-section {
+        width: 100%;
+        padding: 140px 60px 80px;
+        max-width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      .about-eyebrow {
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--light-muted);
+        margin: 0 0 24px 0;
+        letter-spacing: 0.02em;
+      }
+      .about-heading {
+        font-family: var(--font-display);
+        font-size: clamp(32px, 3.6vw, 48px);
+        font-weight: 500;
+        line-height: 1.06;
+        letter-spacing: -0.015em;
+        color: var(--light-text);
+        margin: 0 auto 28px auto;
+        max-width: 760px;
+        text-wrap: balance;
+      }
+      .about-text {
+        font-family: var(--font-display);
+        font-size: clamp(16px, 1.2vw, 18px);
+        font-weight: 400;
+        line-height: 1.6;
+        color: rgba(19, 31, 31, 0.78);
+        margin: 0 auto;
+        max-width: 720px;
+      }
+
+      /* ─── TEAM ────────────────────────────────────────── */
+      .team-section {
+        width: 100%;
+        padding: 40px 60px 140px;
+        max-width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .team-title {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 3vw, 40px);
+        font-weight: 500;
+        line-height: 1.05;
+        letter-spacing: -0.015em;
+        color: var(--light-text);
+        margin: 0 0 64px 0;
+        text-align: center;
+      }
+      /* Leaders row */
+      .team-leaders {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 56px;
+      }
+      .team-leader-card {
+        display: flex;
+        flex-direction: column;
+      }
+      .team-leader-photo-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        border-radius: 20px;
+        overflow: hidden;
+        background: #c9d8d5;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .team-leader-photo-wrap img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        transition: filter 0.35s ease;
+      }
+      .team-leader-card:hover .team-leader-photo-wrap img {
+        filter: blur(6px);
+      }
+      .team-leader-initials {
+        font-family: var(--font-display);
+        font-size: 56px;
+        font-weight: 500;
+        color: rgba(19, 31, 31, 0.25);
+        letter-spacing: 0.02em;
+        position: relative;
+        z-index: 0;
+      }
+      .team-leader-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.72);
+        display: flex;
+        align-items: flex-end;
+        padding: 28px;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        z-index: 2;
+      }
+      .team-leader-card:hover .team-leader-overlay {
+        opacity: 1;
+      }
+      .team-leader-desc {
+        font-family: var(--font-display);
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: rgba(19, 31, 31, 0.9);
+        margin: 0;
+      }
+      .team-leader-name {
+        font-family: var(--font-display);
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--light-text);
+        text-decoration: none;
+        margin: 0 0 4px 0;
+        display: block;
+        transition: opacity 0.2s;
+      }
+      .team-leader-name:hover {
+        opacity: 0.55;
+      }
+      .team-leader-role {
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--light-muted);
+        margin: 0;
+      }
+      /* Regular team grid */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 36px 20px;
+      }
+      .team-member {
+        display: flex;
+        flex-direction: column;
+      }
+      .team-photo {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #c9d8d5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: rgba(19, 31, 31, 0.3);
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 12px;
+      }
+      .team-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      .team-name {
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.3;
+        color: var(--light-text);
+        text-decoration: none;
+        margin: 0 0 3px 0;
+        display: block;
+        transition: opacity 0.2s;
+      }
+      .team-name:hover {
+        opacity: 0.55;
+      }
+      .team-role {
+        font-family: var(--font-display);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--light-muted);
+        margin: 0;
+      }
+
+      .team-group {
+        margin-top: 56px;
+      }
+      .team-subtitle {
+        font-family: var(--font-display);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--light-muted);
+        margin: 0 0 20px 0;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(19, 31, 31, 0.1);
+      }
+      .team-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .team-grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 420px;
+      }
+
+      /* ─── REVEAL ──────────────────────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        filter: blur(4px);
+        transition:
+          opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+          filter 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+      }
+      .reveal.d1 {
+        transition-delay: 0.1s;
+      }
+      .reveal.d2 {
+        transition-delay: 0.2s;
+      }
+      .reveal.d3 {
+        transition-delay: 0.3s;
+      }
+      .reveal.d4 {
+        transition-delay: 0.4s;
+      }
+      .reveal.d5 {
+        transition-delay: 0.5s;
+      }
+      .reveal.d6 {
+        transition-delay: 0.6s;
+      }
+      .reveal.d7 {
+        transition-delay: 0.7s;
+      }
+      .reveal.d8 {
+        transition-delay: 0.8s;
+      }
+      .reveal.d9 {
+        transition-delay: 0.9s;
+      }
+
+      /* ─── RESPONSIVE ──────────────────────────────────── */
+      @media (max-width: 1280px) {
+        .about-hero {
+          padding: 64px 40px 0;
+        }
+        .about-section {
+          padding: 120px 40px 60px;
+        }
+        .team-section {
+          padding: 32px 40px 120px;
+        }
+        .team-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      @media (max-width: 900px) {
+         .hero-announcement {
+          font-size: 12px;
+        }
+        .team-leaders {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 24px;
+          margin-bottom: 56px;
+        }
+        .team-leader-desc {
+          font-family: var(--font-display);
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 1.5;
+          color: rgba(19, 31, 31, 0.9);
+          margin: 0;
+        }
+        nav {
+          padding: 0 24px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .about-hero {
+          padding: 48px 24px 0;
+        }
+        .about-hero-title {
+          margin-bottom: 40px;
+        }
+        .about-section {
+          padding: 80px 24px 40px;
+        }
+        .team-section {
+          padding: 24px 24px 100px;
+        }
+        .team-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 28px 18px;
+        }
+        .team-photo {
+          font-size: 24px;
+          border-radius: 12px;
+        }
+        .team-title {
+          margin-bottom: 36px;
+        }
+        .about-hero-disclaimer {
+          font-size: 11px;
+          padding: 9px 16px;
+          white-space: normal;
+          max-width: 88%;
+        }
+      }
+      @media (max-width: 540px) {
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* ─── FOOTER ──────────────────────────────────────── */
+      footer {
+        background: var(--dark-bg);
+        border-top: 1px solid var(--dark-border);
+        padding: 64px 60px 40px;
+      }
+      .footer-logo {
+        height: 32px;
+        width: auto;
+        display: block;
+        filter: brightness(0) invert(1);
+      }
+      .footer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 64px;
+      }
+      .footer-brand p {
+        font-size: 13px;
+        font-weight: 300;
+        color: var(--dark-muted);
+        line-height: 1.65;
+        margin-top: 16px;
+        max-width: 240px;
+      }
+      .footer-links {
+        display: grid;
+        grid-template-columns: repeat(1, 140px);
+      }
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-col a {
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--dark-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-col a:hover {
+        color: var(--dark-text);
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 32px;
+        border-top: 1px solid var(--dark-border);
+      }
+      .footer-bottom p {
+        font-size: 12px;
+        color: rgba(240, 244, 243, 0.22);
+        font-weight: 300;
+      }
+      .footer-socials {
+        display: flex;
+        gap: 20px;
+      }
+      .footer-socials a {
+        color: rgba(240, 244, 243, 0.3);
+        transition: color 0.2s;
+        display: flex;
+        align-items: center;
+      }
+      .footer-socials a:hover {
+        color: var(--dark-text);
+      }
+       @media (max-width: 900px) {
+         .hero-announcement {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══ ANNOUNCEMENT ═══════════════════════════════════════ -->
+    <div class="hero-announcement">
+      <span><strong>News!</strong> Kai is raising Series A via Gems</span>
+    </div>
+
+    <!-- ═══ NAV ════════════════════════════════════════════ -->
+    <nav id="main-nav">
+      <a href="index.html" style="text-decoration: none">
+        <div class="nav-logo-wrap">
+          <img class="nav-logo" src="assets/logo1-full.png" alt="Kai" />
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#roadmap">Roadmap</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-signup">Join the sale</button>
+      </div>
+    </nav>
+
+    <!-- ═══ HERO ═══════════════════════════════════════════ -->
+    <section class="about-hero">
+      <h1 class="about-hero-title reveal">
+        <span style="font-weight: 400">Finance is fragmented</span><br />Kai
+        unifies it.
+      </h1>
+      <div class="about-hero-image-stage">
+        <div class="about-hero-image" id="aboutHeroImage"></div>
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT SECTION ══════════════════════════════════ -->
+    <section class="about-section">
+      <p class="about-eyebrow reveal">About Kai</p>
+      <h2 class="about-heading reveal d2">
+        Banking, reimagined for the AI age.
+      </h2>
+      <p class="about-text reveal d4">
+        Kai isn't an app you open simply to check a balance.<br />
+        It's a responsive layer that coexists with your life.<br />
+        A unified account that consolidates all your assets for immediate,
+        simple, and direct execution.
+      </p>
+    </section>
+
+    <!-- ═══ TEAM ════════════════════════════════════════════ -->
+    <section class="team-section">
+      <h2 class="team-title reveal">Meet the team</h2>
+
+      <!-- ── Row 1: Leaders ───────────────────────────── -->
+      <div class="team-leaders">
+        <div class="team-leader-card reveal">
+          <div class="team-leader-photo-wrap">
+            <img src="assets/Gadi Davidyan.png?v=2" alt="Gadi Davidyan" />
+            <div class="team-leader-overlay">
+              <p class="team-leader-desc">
+                A former CIO at a major bank who has spent years building core
+                banking infrastructure and digital banks.<br />Named one of the
+                world's top 100 CIOs.<br />Advisory board member to fintech and
+                cybersecurity startups.
+              </p>
+            </div>
+          </div>
+          <a
+            class="team-leader-name"
+            href="https://www.linkedin.com/in/gadi-davidyan-28a11434/"
+            target="_blank"
+            rel="noopener"
+            >Gadi Davidyan</a
+          >
+          <p class="team-leader-role">CEO</p>
+        </div>
+        <div class="team-leader-card reveal d1">
+          <div class="team-leader-photo-wrap">
+            <img src="assets/Lina Fabri.png?v=2" alt="Lina Fabri" />
+            <div class="team-leader-overlay">
+              <p class="team-leader-desc">
+                Global product executive with proven track record of building
+                robust AI driven payment platforms.
+              </p>
+            </div>
+          </div>
+          <a
+            class="team-leader-name"
+            href="https://www.linkedin.com/in/linafabri/"
+            target="_blank"
+            rel="noopener"
+            >Lina Fabri</a
+          >
+          <p class="team-leader-role">CPO</p>
+        </div>
+        <div class="team-leader-card reveal d2">
+          <div class="team-leader-photo-wrap">
+            <img src="assets/Youval Fabri.png?v=2" alt="Youval Fabri" />
+            <div class="team-leader-overlay">
+              <p class="team-leader-desc">
+                A seasoned entrepreneur and executive advisor at the
+                intersection of digital assets and global finance, specializing
+                in cross-border regulatory engagement.
+              </p>
+            </div>
+          </div>
+          <a
+            class="team-leader-name"
+            href="https://www.linkedin.com/in/youval-fabri-0b38843/"
+            target="_blank"
+            rel="noopener"
+            >Youval Fabri</a
+          >
+          <p class="team-leader-role">Strategic Advisor</p>
+        </div>
+      </div>
+
+      <!-- ── Row 2: Galateia, Shay, Ziv, Tiffany ─────── -->
+      <div class="team-grid team-grid-4" style="margin-top: 56px">
+        <div class="team-member reveal">
+          <div class="team-photo">
+            <img src="assets/Galateia Charalampous.png?v=2" alt="" />
+          </div>
+          <a
+            class="team-name"
+            href="https://www.linkedin.com/in/galateia-charalampous-agathaggelou-2b2492158/"
+            target="_blank"
+            rel="noopener"
+            >Galateia Charalampous</a
+          >
+          <p class="team-role">Director, Head of Compliance</p>
+        </div>
+        <div class="team-member reveal d1">
+          <div class="team-photo">
+            <img src="assets/Shay Nahari.png?v=2" alt="" />
+          </div>
+          <a
+            class="team-name"
+            href="https://www.linkedin.com/in/shay-nahari-7082096b/"
+            target="_blank"
+            rel="noopener"
+            >Shay Nahari</a
+          >
+          <p class="team-role">Legal Counsel</p>
+        </div>
+        <div class="team-member reveal d2">
+          <div class="team-photo"><img src="assets/Ziv Oz-1.png" alt="" /></div>
+          <a
+            class="team-name"
+            href="https://www.linkedin.com/in/zivoz/"
+            target="_blank"
+            rel="noopener"
+            >Ziv Oz</a
+          >
+          <p class="team-role">Head of Marketing</p>
+        </div>
+        <div class="team-member reveal d3">
+          <div class="team-photo">
+            <img src="assets/Tiffany Ben.png?v=2" alt="" />
+          </div>
+          <a
+            class="team-name"
+            href="https://www.linkedin.com/in/tiffany-ben-3aa660160/"
+            target="_blank"
+            rel="noopener"
+            >Tiffany Ben</a
+          >
+          <p class="team-role">Operations Manager</p>
+        </div>
+      </div>
+
+      <!-- ── Row 3: UBOs ───────────────────────────────── -->
+      <div class="team-group">
+        <p class="team-subtitle reveal">UBos</p>
+        <div class="team-grid team-grid-2">
+          <div class="team-member reveal">
+            <div class="team-photo">
+              <img src="assets/David Dadon.png?v=3" alt="" />
+            </div>
+            <a
+              class="team-name"
+              href="https://www.linkedin.com/in/david-dadon-2b361723b/"
+              target="_blank"
+              rel="noopener"
+              >David Dadon</a
+            >
+          </div>
+          <div class="team-member reveal d1">
+            <div class="team-photo">
+              <img src="assets/Liran Yifrah.png?v=2" alt="" />
+            </div>
+            <p class="team-name">Liran Yifrah</p>
+            <p class="team-role">UBO</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Row 4: Advisors ───────────────────────────── -->
+      <div class="team-group">
+        <p class="team-subtitle reveal">Advisors — Digital Assets Division</p>
+        <div class="team-grid">
+          <div class="team-member reveal">
+            <div class="team-photo">
+              <img src="assets/Omri Hanover.png?v=2" alt="" />
+            </div>
+            <a
+              class="team-name"
+              href="https://www.linkedin.com/in/omri-hanover/"
+              target="_blank"
+              rel="noopener"
+              >Omri Hanover</a
+            >
+            <p class="team-role">Head of Digital Assets Solutions</p>
+          </div>
+          <div class="team-member reveal d1">
+            <div class="team-photo">
+              <img src="assets/Oron Berkovich.png?v=2" alt="" />
+            </div>
+            <a
+              class="team-name"
+              href="https://www.linkedin.com/in/oron-berkovich/"
+              target="_blank"
+              rel="noopener"
+              >Oron Berkovich</a
+            >
+            <p class="team-role">Product Manager</p>
+          </div>
+          <div class="team-member reveal d1">
+            <div class="team-photo">
+              <img src="assets/Tal Levi.png?v=2" alt="" />
+            </div>
+            <a
+              class="team-name"
+              href="https://www.linkedin.com/in/tal-levy1/"
+              target="_blank"
+              rel="noopener"
+              >Tal Levi</a
+            >
+            <p class="team-role">Product Manager</p>
+          </div>
+          <div class="team-member reveal d3">
+            <div class="team-photo">
+              <img src="assets/Gitai Zakh.png?v=2" alt="" />
+            </div>
+            <a
+              class="team-name"
+              href="https://www.linkedin.com/in/gitaizakh/"
+              target="_blank"
+              rel="noopener"
+              >Gitai Zakh</a
+            >
+            <p class="team-role">Business Development</p>
+          </div>
+          <div class="team-member reveal d4">
+            <div class="team-photo">
+              <img src="assets/Alon Ben Shimon.png?v=2" alt="" />
+            </div>
+            <a
+              class="team-name"
+              href="https://www.linkedin.com/in/alon-ben-shimon-817608149/"
+              target="_blank"
+              rel="noopener"
+              >Alon Ben Shimon</a
+            >
+            <p class="team-role">AI System Builder</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═════════════════════════════════════════ -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/logo1-full.png" alt="Kai" />
+          <p>Financial clarity for everyone. Simple tools, real results.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="index.html#features">Features</a></li>
+              <li><a href="index.html#roadmap">Roadmap</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Kai. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M12.6 1.5H14.85L9.9 7.12L15.75 14.5H11.16L7.56 9.82L3.44 14.5H1.18L6.48 8.5L0.875 1.5H5.58L8.83 5.77L12.6 1.5ZM11.82 13.12H13.07L4.84 2.78H3.5L11.82 13.12Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M13.5 1.5H2.5C1.95 1.5 1.5 1.95 1.5 2.5V13.5C1.5 14.05 1.95 14.5 2.5 14.5H13.5C14.05 14.5 14.5 14.05 14.5 13.5V2.5C14.5 1.95 14.05 1.5 13.5 1.5ZM5.5 12.5H3.5V6.5H5.5V12.5ZM4.5 5.5C3.95 5.5 3.5 5.05 3.5 4.5C3.5 3.95 3.95 3.5 4.5 3.5C5.05 3.5 5.5 3.95 5.5 4.5C5.5 5.05 5.05 5.5 4.5 5.5ZM12.5 12.5H10.5V9.5C10.5 8.67 9.83 8 9 8C8.17 8 7.5 8.67 7.5 9.5V12.5H5.5V6.5H7.5V7.5C7.9 6.9 8.65 6.5 9.5 6.5C11.16 6.5 12.5 7.84 12.5 9.5V12.5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll reveal — stagger elements as they enter the viewport
+      const reveals = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
+      );
+      reveals.forEach((el) => io.observe(el));
+
+      // Nav scroll bg
+      const nav = document.getElementById("main-nav");
+      function updateNav() {
+        if (window.scrollY > 8) nav.classList.add("scrolled");
+        else nav.classList.remove("scrolled");
+      }
+      window.addEventListener("scroll", updateNav, { passive: true });
+      updateNav();
+
+      // Hero image expands to full width on scroll + disclaimer fades out
+      const heroImg = document.getElementById("aboutHeroImage");
+      const heroStage = document.querySelector(".about-hero-image-stage");
+      const disclaimer = document.getElementById("aboutDisclaimer");
+      function updateHeroImage() {
+        if (!heroImg || !heroStage) return;
+        const rect = heroStage.getBoundingClientRect();
+        const stageTop = rect.top;
+        // When the top of the stage approaches/passes the top of viewport, expand
+        if (stageTop < 80) {
+          heroImg.classList.add("expanded");
+        } else {
+          heroImg.classList.remove("expanded");
+        }
+        // Hide disclaimer once user scrolls past 30px
+        if (disclaimer) {
+          if (window.scrollY > 30) disclaimer.classList.add("hidden");
+          else disclaimer.classList.remove("hidden");
+        }
+      }
+      window.addEventListener("scroll", updateHeroImage, { passive: true });
+      window.addEventListener("resize", updateHeroImage, { passive: true });
+      updateHeroImage();
+    </script>
+  </body>
 </html>

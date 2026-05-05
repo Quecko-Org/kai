@@ -3887,6 +3887,11 @@ color: var(--dark-muted);
       .reveal.d5 {
         transition-delay: 0.25s;
       }
+        @media (max-width: 900px) {
+         .hero-announcement {
+          font-size: 12px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -4036,7 +4041,7 @@ Fiat accounts, stock trading, and dedicated savings - managed from one dashboard
 
         <div class="kai-sec-2-grid">
           <div class="kai-feature reveal">
-            <svg
+               <svg
               class="kai-feature-icon"
               viewBox="0 0 40 40"
               fill="none"
@@ -4046,10 +4051,10 @@ Fiat accounts, stock trading, and dedicated savings - managed from one dashboard
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <rect x="14" y="6" width="12" height="18" rx="6" />
-              <path d="M8 22c0 6.627 5.373 12 12 12s12-5.373 12-12" />
-              <line x1="20" y1="34" x2="20" y2="38" />
-              <line x1="15" y1="38" x2="25" y2="38" />
+              <circle cx="20" cy="21" r="12" />
+              <path d="M20 14v7l5 3" />
+              <path d="M14 7h12" />
+              <path d="M20 7v3" />
             </svg>
             <h3>Instant Moves</h3>
             <p>
@@ -4157,12 +4162,13 @@ Fiat accounts, stock trading, and dedicated savings - managed from one dashboard
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <circle cx="20" cy="21" r="12" />
-              <path d="M20 14v7l5 3" />
-              <path d="M14 7h12" />
-              <path d="M20 7v3" />
+              <rect x="14" y="6" width="12" height="18" rx="6" />
+              <path d="M8 22c0 6.627 5.373 12 12 12s12-5.373 12-12" />
+              <line x1="20" y1="34" x2="20" y2="38" />
+              <line x1="15" y1="38" x2="25" y2="38" />
             </svg>
-            <h3>QCommand, don't just click</h3>
+         
+            <h3>Command, don't just click</h3>
             <p>
               Talk to Kai to move money, set rules for your assets, or manage
               your business treasury using natural language.
