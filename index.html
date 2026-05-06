@@ -12,8 +12,7 @@
   <meta property="og:url" content="https://www.kai.xyz/" />
   <meta property="og:title" content="Kai — Manage Your Financial Life" />
   <meta property="og:description" content="Take control of your finances with Kai." />
-  <!-- <meta property="og:image" content="https://www.kai.xyz/assets/previewimg.jpg" /> -->
-   <meta property="og:image:type" content="/assets/img.jpg" />
+  <meta property="og:image" content="https://www.kai.xyz/assets/preview.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Kai" />
@@ -538,7 +537,61 @@
       height: auto;
       display: block;
     }
+   .nav-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
 
+    .nav-login {
+      background: transparent;
+      border: 1px solid rgba(19,31,31,0.25);
+      color: var(--light-text);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      padding: 8px 20px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .nav-login:hover { background: rgba(19,31,31,0.05); }
+
+    .nav-signup {
+      background: white;
+      border: none;
+      color: var(--light-text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s, transform 0.2s;
+      letter-spacing: 0.01em;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-signup .btn-default,
+    .nav-signup .btn-hover {
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .nav-signup .btn-hover {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      color: #ffffff;
+    }
+    .nav-signup:hover { background: var(--light-text); transform: none; }
+    .nav-signup:hover .btn-default { opacity: 0; }
+    .nav-signup:hover .btn-hover { opacity: 1; }
+    nav.scrolled .nav-signup:hover { background: #ffffff; }
+    nav.scrolled .nav-signup:hover .btn-hover { color: var(--light-text); }
     .hero-dashboard::after {
       content: "";
       position: absolute;
@@ -4226,9 +4279,9 @@
             <img class="nav-logo" id="navLogo" src="assets/logo1-full.png" alt="Kai" />
           </div>
         </a>
-        <div class="nav-actions">
-          <button class="nav-signup">Join the sale</button>
-        </div>
+      <div class="nav-actions">
+    <button class="nav-signup"><span class="btn-default">Join the sale</span><span class="btn-hover">Coming soon</span></button>
+  </div>
       </div>
       <ul class="nav-linkss">
         <a href="about.html">About</a>
@@ -4250,9 +4303,9 @@
       <li><a href="#roadmap">Roadmap</a></li>
     </ul>
 
-    <div class="nav-actions">
-      <button class="nav-signup">Join the sale</button>
-    </div>
+  <div class="nav-actions">
+    <button class="nav-signup"><span class="btn-default">Join the sale</span><span class="btn-hover">Coming soon</span></button>
+  </div>
   </nav>
 
   <!-- ═══ HERO ════════════════════════════════════════════ -->
