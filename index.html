@@ -2550,8 +2550,8 @@
 
     .footer-links {
       display: grid;
-      grid-template-columns: repeat(3, 140px);
-      gap: 0 40px;
+      grid-template-columns: repeat(2, minmax(0, 180px));
+      gap: 0 32px;
     }
 
     .footer-col h4 {
@@ -2864,8 +2864,8 @@
 
     .footer-links {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 0 40px;
+      grid-template-columns: repeat(2, minmax(0, 180px));
+      gap: 0 32px;
     }
 
     @media (max-width: 991px) {}
@@ -2925,6 +2925,34 @@
     }
 
     .footer-socials a:hover {
+      color: var(--dark-text);
+    }
+
+    .footer-legal {
+      padding: 32px 0;
+      border-top: 1px solid var(--dark-border);
+    }
+
+    .footer-legal p {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--dark-muted);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .footer-legal p + p {
+      margin-top: 12px;
+    }
+
+    .footer-legal a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover {
       color: var(--dark-text);
     }
 
@@ -4705,17 +4733,41 @@
 
       <div class="footer-links">
         <div class="footer-col">
+          <h4>Product</h4>
           <ul>
             <li><a href="about.html">About</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#roadmap">Roadmap</a></li>
           </ul>
         </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="assets/documents/terms_of_service.pdf" target="_blank" rel="noopener">Terms of Service</a></li>
+            <li><a href="assets/documents/privacy_notice.pdf" target="_blank" rel="noopener">Privacy Notice</a></li>
+            <li><a href="assets/documents/cookie_notice.pdf" target="_blank" rel="noopener">Cookie Notice</a></li>
+            <li><a href="assets/documents/risk_warning.pdf" target="_blank" rel="noopener">Risk Warning</a></li>
+            <li><a href="assets/documents/acceptable_use_policy.pdf" target="_blank" rel="noopener">Acceptable Use Policy</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
+    <div class="footer-legal">
+      <p>
+        Coin Bridge AG (DBA Kai) is a company registered in Switzerland. Coin Bridge AG holds member
+        number 10127 of VQF (Verein zur Qualitätssicherung von Finanzdienstleistungen). VQF is a
+        self-regulatory organization recognized by FINMA, Swiss Financial Market Supervisory Authority.
+      </p>
+      <p>
+        Digital assets are volatile and you may lose the entire value of your holdings. Nothing on this
+        site is investment, legal, or tax advice. Read the full
+        <a href="assets/documents/risk_warning.pdf" target="_blank" rel="noopener">Risk Warning</a>.
+      </p>
+    </div>
+
     <div class="footer-bottom">
-      <p>© 2026 Kai. All rights reserved.</p>
+      <p>© 2026 Coin Bridge AG. All rights reserved.</p>
       <div class="footer-socials">
         <a href="https://x.com/KaiPlatform" target="_blank" aria-label="Twitter">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
