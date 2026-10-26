@@ -16,7 +16,7 @@
   <meta property="og:title" content="Kai — Manage Your Financial Life" />
   <meta property="og:description" content="Take control of your finances with Kai." />
 
-  <meta property="og:image" content="https://www.kai.xyz/assets/preview.png" />
+  <meta property="og:image" content="https://www.kai.xyz/assets/share-image.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kai — Manage Your Financial Life" />
   <meta name="twitter:description" content="Take control of your finances with Kai." />
-  <meta name="twitter:image" content="https://www.kai.xyz/assets/preview.png" />
+  <meta name="twitter:image" content="https://www.kai.xyz/assets/share-image.png" />
   <meta property="og:site_name" content="Kai" />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap" rel="stylesheet" />
   <style>
@@ -1161,14 +1161,65 @@
         font-size: 12px;
       }
     }
+  
+    /* ─── Compliance footer block (Oct 2026) ─────────────── */
+    .footer-legal p {
+      max-width: 760px;
+    }
+
+    .footer-legal .footer-legal-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark-text);
+      margin-bottom: 12px;
+    }
+
+    .footer-legal .footer-planned {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(240, 244, 243, 0.68);
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .footer-bottom-text {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-width: 760px;
+    }
+
+    .footer-bottom-text p {
+      margin: 0;
+    }
+
+    .footer-bottom-text a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-text a:hover {
+      color: var(--dark-text);
+    }
+
+    @media (max-width: 900px) {
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <!-- ═══ ANNOUNCEMENT ═══════════════════════════════════════ -->
-   <a class="serieslink" href="https://gems.vip/kai" target="_blank">
+   <a class="serieslink" href="waitlist.html">
   <div class="hero-announcement">
-    <span><strong>News!</strong> Kai is raising Seed via Gems</span>
+    <span>Kai is launching soon. Join the waitlist for early access.</span>
   </div>
   </a>
 
@@ -1187,7 +1238,7 @@
     </ul>
 
     <div class="nav-actions">
-      <a href="https://gems.vip/kai" target="_blank" class="nav-signup">Join the sale</a>
+      <a href="waitlist.html" class="nav-signup">Join the waitlist</a>
     </div>
   </nav>
 
@@ -1206,13 +1257,13 @@
   <section class="about-section">
     <p class="about-eyebrow reveal">About Kai</p>
     <h2 class="about-heading reveal d2">
-      Banking, reimagined for the AI age.
+      Finance, reimagined for the AI age.
     </h2>
     <p class="about-text reveal d4">
       Kai isn't an app you open simply to check a balance.<br />
       It's a responsive layer that coexists with your life.<br />
-      A unified account that consolidates all your assets for immediate,
-      simple, and direct execution.
+      One account that brings your assets together, so you can act simply and
+      quickly, and stay in control.
     </p>
   </section>
 
@@ -1269,12 +1320,12 @@
       <div class="team-member reveal">
         <div class="team-photo"><img src="assets/Galateia Charalampous.png?v=2" alt=""></div>
         <h4 class="team-name">Galateia Charalampous</h4>
-        <p class="team-role">Director</p>
+        <p class="team-role">Group Director</p>
       </div>
       <div class="team-member reveal d1">
         <div class="team-photo"><img src="assets/David Dadon.png?v=3" alt=""></div>
         <h4 class="team-name">David Dadon</h4>
-        <p class="team-role">Head of Banking Division</p>
+        <p class="team-role">Head of Financial Partnerships</p>
       </div>
       <div class="team-member reveal d2">
         <div class="team-photo"><img src="assets/Ziv Oz.png" alt=""></div>
@@ -1340,20 +1391,53 @@
       </div>
     </div>
     <div class="footer-legal">
+      <p class="footer-legal-title">Company and Regulatory Information</p>
+
       <p>
-        Coin Bridge AG (DBA Kai) is registered in Switzerland and a subsidiary of D.L. Certify Global
-        Group Ltd. (Cyprus). Coin Bridge AG holds member number 10127 of VQF, a FINMA-recognized
-        self-regulatory organization.
+        Coin Bridge AG, trading as KAI, is a company incorporated under the laws of Switzerland in the
+        canton of Zug, with business identification number CHE-110.571.003.
       </p>
+
       <p>
-        Digital assets are volatile and you may lose the entire value of your holdings. Nothing on this
-        site is investment, legal, or tax advice. Read the full
-        <a href="risk-warning.html">Risk Warning</a>.
+        Coin Bridge AG is a member of VQF - Verein zur Qualitätssicherung von Finanzdienstleistungen
+        (<a href="https://www.vqf.ch" target="_blank" rel="noopener">https://www.vqf.ch</a>), a
+        self-regulatory organisation recognised by the Swiss Financial Market Supervisory Authority
+        (FINMA) under the Swiss Anti-Money Laundering Act. Coin Bridge AG is subject to VQF supervision
+        in respect of its anti-money-laundering obligations. This affiliation does not constitute a
+        banking licence or FINMA approval of the products offered. Coin Bridge AG is not a bank and is
+        not directly supervised by FINMA.
+      </p>
+
+      <p>VQF member no. 10127</p>
+
+      <p>
+        KAI is a financial technology platform. Banking and fiat account services, where available, are
+        provided by third-party banking or financial institution partners under their applicable terms.
+        Coin Bridge AG does not itself accept or hold public deposits. The relevant service provider and
+        contractual arrangements are identified in the documentation applicable to each service.
+      </p>
+
+      <p>
+        Balances held with Coin Bridge AG are not covered by the Swiss deposit protection scheme. Any
+        protection applicable to eligible deposits held with a partner bank depends on the relevant bank,
+        jurisdiction, account structure and applicable conditions. Such protection does not automatically
+        extend to all balances accessible through KAI.
+      </p>
+
+      <p>
+        Digital assets are not covered by Swiss deposit protection and may lose some or all of their
+        value.
       </p>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 Coin Bridge AG. All rights reserved.</p>
+      <div class="footer-bottom-text">
+        <p>© 2026 Coin Bridge AG. All rights reserved.</p>
+        <p>
+          Nothing on this site is investment, legal, or tax advice. Read the full
+          <a href="risk-warning.html">Risk Warning</a>.
+        </p>
+      </div>
       <div class="footer-socials">
         <a href="https://x.com/KaiPlatform" target="_blank" aria-label="Twitter">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

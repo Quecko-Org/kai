@@ -16,7 +16,7 @@
   <meta property="og:title" content="Kai — Manage Your Financial Life" />
   <meta property="og:description" content="Take control of your finances with Kai." />
 
-  <meta property="og:image" content="https://www.kai.xyz/assets/preview.png" />
+  <meta property="og:image" content="https://www.kai.xyz/assets/share-image.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kai — Manage Your Financial Life" />
   <meta name="twitter:description" content="Take control of your finances with Kai." />
-  <meta name="twitter:image" content="https://www.kai.xyz/assets/preview.png" />
+  <meta name="twitter:image" content="https://www.kai.xyz/assets/share-image.png" />
 
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap" rel="stylesheet" />
   <style>
@@ -4325,14 +4325,103 @@
         font-size: 12px;
       }
     }
+  
+    /* ─── Compliance footer block (Oct 2026) ─────────────── */
+    .footer-legal p {
+      max-width: 760px;
+    }
+
+    .footer-legal .footer-legal-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark-text);
+      margin-bottom: 12px;
+    }
+
+    .footer-legal .footer-planned {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(240, 244, 243, 0.68);
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .footer-bottom-text {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-width: 760px;
+    }
+
+    .footer-bottom-text p {
+      margin: 0;
+    }
+
+    .footer-bottom-text a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-text a:hover {
+      color: var(--dark-text);
+    }
+
+    @media (max-width: 900px) {
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+    }
+
+    /* ─── Fix 7 (Oct 2026): the longer hero disclaimer must stay
+       fully readable, so it wraps instead of being cut off ─────── */
+    .floating-disclaimer .hero-disclaimer {
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      max-width: 820px;
+      border-radius: 20px;
+    }
+
+    /* ─── "Coming soon" label (Oct 2026) ─────────────────── */
+    .coming-soon {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(10, 10, 10, 0.18);
+      background: rgba(10, 10, 10, 0.04);
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(10, 10, 10, 0.65);
+      white-space: nowrap;
+      position: relative;
+      top: -2px;
+    }
+
+    .kai-sec-3.going-dark .coming-soon,
+    .kai-sec-virtual .coming-soon {
+      border-color: rgba(240, 244, 243, 0.28);
+      background: rgba(240, 244, 243, 0.08);
+      color: rgba(240, 244, 243, 0.78);
+    }
   </style>
 </head>
 
 <body>
   <!-- ═══ ANNOUNCEMENT ═══════════════════════════════════════ -->
-  <a class="serieslink" href="https://gems.vip/kai" target="_blank">
+  <a class="serieslink" href="waitlist.html">
     <div class="hero-announcement">
-    <span><strong>News!</strong> Kai is raising Seed via Gems
+    <span>Kai is launching soon. Join the waitlist for early access.
     </span>
   </div>
   </a>
@@ -4347,7 +4436,7 @@
           </div>
         </a>
         <div class="nav-actions">
-          <a href="https://gems.vip/kai" target="_blank" class="nav-signup">Join the sale</a>
+          <a href="waitlist.html" class="nav-signup">Join the waitlist</a>
         </div>
       </div>
       <ul class="nav-linkss">
@@ -4371,7 +4460,7 @@
     </ul>
 
     <div class="nav-actions">
-      <a href="https://gems.vip/kai" target="_blank" class="nav-signup">Join the sale</a>
+      <a href="waitlist.html" class="nav-signup">Join the waitlist</a>
     </div>
   </nav>
 
@@ -4379,9 +4468,9 @@
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1 class="hero-title">Unified &nbsp; Banking.<br />Unlocked &nbsp; Limits.</h1>
+      <h1 class="hero-title">Unified &nbsp; Finance.<br />Unlocked &nbsp; Limits.</h1>
       <p class="hero-sub">
-        Apply in minutes to experience the first financial platform that
+        Join the waitlist to be among the first to try a financial platform that
         actually bridges the gap.
       </p>
       <div class="hero-dashboard-wrap">
@@ -4394,9 +4483,10 @@
 
   <div class="floating-disclaimer" id="floatingDisclaimer">
     <div class="hero-disclaimer">
-      Kai is a fintech platform powered by AI agents, not a bank. Banking
-      services provided through FDIC-insured partner banks. Cryptocurrency
-      services provided by regulated partners.
+      Kai is a fintech platform powered by AI agents, not a bank. Fiat account
+      services, where available, are provided by third-party financial partners
+      under their applicable terms. Cryptocurrency services provided by
+      regulated partners.
     </div>
   </div>
 
@@ -4425,7 +4515,7 @@
         </div>
         <div class="cfg-bullets">
           <div class="cfg-bullet">
-            <p class="cfg-bullet-label">Traditional Banking</p>
+            <p class="cfg-bullet-label">Fiat Accounts &amp; Payments</p>
             <p class="cfg-bullet-text">
               Fiat accounts, stock trading, and dedicated savings - managed
               from one dashboard.
@@ -4434,15 +4524,15 @@
           <div class="cfg-bullet">
             <p class="cfg-bullet-label">Digital assets</p>
             <p class="cfg-bullet-text">
-              Direct access to markets and instant liquidity, seamlessly
-              connected to globally accepted debit cards for real-world
-              spending.
+              Access crypto markets and convert in seconds, where supported, with a
+              Kai card for everyday spending wherever it's accepted.
             </p>
           </div>
           <div class="cfg-bullet">
             <p class="cfg-bullet-label">Execution</p>
             <p class="cfg-bullet-text">
-              A system built to act on your intent, not just show you data.
+              A system that prepares the move for you, not just shows you data. You
+              approve every action.
             </p>
           </div>
           <!-- <a class="cfg-link" href="#">Learn more about our tech</a> -->
@@ -4455,7 +4545,7 @@
   <section class="kai-sec kai-sec-2" id="features">
     <div class="kai-sec-2-inner">
       <div class="kai-sec-2-header reveal">
-        <div class="kai-eyebrow">Everything you need</div>
+        <div class="kai-eyebrow">Everything you need <span class="coming-soon">Coming soon</span></div>
         <h2 class="kai-sec-2-title">
           Kai removes the walls between all asset classes
         </h2>
@@ -4470,9 +4560,9 @@
             <path d="M14 7h12" />
             <path d="M20 7v3" />
           </svg>
-          <h3>Instant Moves</h3>
+          <h3>Quick Conversions</h3>
           <p>
-            Convert between any asset with one tap. No external exchanges
+            Convert between supported assets in seconds. No external exchanges
             required.
           </p>
         </div>
@@ -4500,8 +4590,8 @@
           </svg>
           <h3>Real-world Spending</h3>
           <p>
-            A virtual card that lets you spend your balance anywhere, whether
-            it's in USD or USDC.
+            A virtual card that lets you spend your balance wherever the card is
+            accepted, whether it's in USD or USDC.
           </p>
         </div>
         <div class="kai-feature reveal">
@@ -4542,8 +4632,8 @@
 
           <h3>Command, don't just click</h3>
           <p>
-            Talk to Kai to move money, set rules for your assets, or manage
-            your business treasury using natural language.
+            Talk to Kai in plain language to prepare transfers, set rules for your
+            assets or organise your business finances. You approve every action.
           </p>
         </div>
       </div>
@@ -4553,7 +4643,7 @@
   <!-- ═══ SECTION 3 · Run your business like a seasoned pro ═══ -->
   <section class="kai-sec kai-sec-3" id="seasoned">
     <div class="kai-sec-3-inner">
-      <h2 class="kai-sec-3-title reveal">Run your business without limits</h2>
+      <h2 class="kai-sec-3-title reveal">Run your business finances in one place <span class="coming-soon">Coming soon</span></h2>
 
       <div class="kai-sec-3-grid">
         <div class="kai-card reveal">
@@ -4561,10 +4651,10 @@
             <img src="assets/Frame 2147228373.png?v=2" alt="" />
           </div>
           <div class="kai-card-caption">
-            <h4>Instant Global Movement</h4>
+            <h4>Fast Cross-Border Moves</h4>
             <p>
-              Forget "business days." Send and receive funds across borders
-              and asset classes instantly.
+              Forget "business days." Send and receive funds across supported
+              countries and asset classes, in seconds where the rails allow.
             </p>
           </div>
         </div>
@@ -4573,7 +4663,7 @@
             <img src="assets/card-1.png" alt="" />
           </div>
           <div class="kai-card-caption">
-            <h4>The Unified Banking</h4>
+            <h4>Unified Financial Platform</h4>
             <p>
               A complete financial platform. Manage multi currency, digital
               assets, and investments from a single, unified core.
@@ -4585,10 +4675,11 @@
             <img src="assets/card-2.png" alt="" />
           </div>
           <div class="kai-card-caption">
-            <h4>Automated Treasury Management</h4>
+            <h4>Smarter Treasury Management</h4>
             <p>
-              Move from manual execution to high-level strategy. Kai’s agents
-              handle complex routine tasks so you can focus on growth.
+              Move from manual work to high-level strategy. Set the rules once, and
+              Kai prepares routine treasury tasks for your approval, so you can
+              focus on growth.
             </p>
           </div>
         </div>
@@ -4599,7 +4690,7 @@
           <div class="kai-card-caption">
             <h4>Financial Agility</h4>
             <p>
-              Use your capital anywhere in the world with programmable cards
+              Use your capital across supported countries with programmable cards
               and local payment rails that adapt to your business needs.
             </p>
           </div>
@@ -4611,15 +4702,14 @@
   <!-- ═══ SECTION 4 · Go virtual ════════════════════════════ -->
   <section class="kai-sec-virtual" id="virtual">
     <div class="kai-sec-virtual-inner reveal">
-      <div class="kai-sec-virtual-eyebrow">Credit Card</div>
+      <div class="kai-sec-virtual-eyebrow">Credit Card <span class="coming-soon">Coming soon</span></div>
       <h2 class="kai-sec-virtual-title">Go virtual</h2>
       <div class="virtual-carousel">
         <div class="virtual-slides" id="virtualSlides">
           <p class="kai-sec-virtual-lede">
             <!-- <span class="kai-sec-virtual-title">A virtual card <br></span> -->
-            A virtual card will allow users to spend their account balance
-            anywhere, regardless of whether the funds are held in traditional
-            or digital assets.
+            A virtual card that lets you spend your balance wherever the card is
+            accepted, whether your funds are in fiat or supported digital assets.
           </p>
           <p class="kai-sec-virtual-lede active">
             <!-- <span class="kai-sec-virtual-title">Set automated <br></span> -->
@@ -4631,9 +4721,8 @@
 
           <p class="kai-sec-virtual-lede">
             <!-- <span class="kai-sec-virtual-title">The system <br></span> -->
-            The system includes a "spending buffer" skill, where AI agents
-            manage card spending power by executing just-in-time cross-asset
-            conversions to ensure the card is always funded.
+            An optional "spending buffer" can top up your card from your other
+            assets, based on rules you set, to help keep it funded.
           </p>
         </div>
         <div class="virtual-dots" id="virtualDots">
@@ -4711,11 +4800,11 @@
         <div class="cta-text">
           <div class="section-labell">Your 1st move</div>
           <h2>towards a unified financial life</h2>
-          <p>Join the KAI funding series<br />through Gems Launchpad</p>
+          <p>Join the waitlist for early access.</p>
         </div>
         <div class="cta-actions">
           <div class="row">
-            <a href="https://gems.vip/kai" target="_blank" class="btn-white">Take me there</a>
+            <a href="waitlist.html" class="btn-white">Join the waitlist</a>
           </div>
         </div>
       </div>
@@ -4754,20 +4843,58 @@
     </div>
 
     <div class="footer-legal">
-      <p>
-        Coin Bridge AG (DBA Kai) is registered in Switzerland and a subsidiary of D.L. Certify Global
-        Group Ltd. (Cyprus). Coin Bridge AG holds member number 10127 of VQF, a FINMA-recognized
-        self-regulatory organization.
+      <p class="footer-planned">
+        Features shown are planned and not yet available. Their scope and availability may change and
+        are subject to regulatory approval.
       </p>
+
+      <p class="footer-legal-title">Company and Regulatory Information</p>
+
       <p>
-        Digital assets are volatile and you may lose the entire value of your holdings. Nothing on this
-        site is investment, legal, or tax advice. Read the full
-        <a href="risk-warning.html">Risk Warning</a>.
+        Coin Bridge AG, trading as KAI, is a company incorporated under the laws of Switzerland in the
+        canton of Zug, with business identification number CHE-110.571.003.
+      </p>
+
+      <p>
+        Coin Bridge AG is a member of VQF - Verein zur Qualitätssicherung von Finanzdienstleistungen
+        (<a href="https://www.vqf.ch" target="_blank" rel="noopener">https://www.vqf.ch</a>), a
+        self-regulatory organisation recognised by the Swiss Financial Market Supervisory Authority
+        (FINMA) under the Swiss Anti-Money Laundering Act. Coin Bridge AG is subject to VQF supervision
+        in respect of its anti-money-laundering obligations. This affiliation does not constitute a
+        banking licence or FINMA approval of the products offered. Coin Bridge AG is not a bank and is
+        not directly supervised by FINMA.
+      </p>
+
+      <p>VQF member no. 10127</p>
+
+      <p>
+        KAI is a financial technology platform. Banking and fiat account services, where available, are
+        provided by third-party banking or financial institution partners under their applicable terms.
+        Coin Bridge AG does not itself accept or hold public deposits. The relevant service provider and
+        contractual arrangements are identified in the documentation applicable to each service.
+      </p>
+
+      <p>
+        Balances held with Coin Bridge AG are not covered by the Swiss deposit protection scheme. Any
+        protection applicable to eligible deposits held with a partner bank depends on the relevant bank,
+        jurisdiction, account structure and applicable conditions. Such protection does not automatically
+        extend to all balances accessible through KAI.
+      </p>
+
+      <p>
+        Digital assets are not covered by Swiss deposit protection and may lose some or all of their
+        value.
       </p>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 Coin Bridge AG. All rights reserved.</p>
+      <div class="footer-bottom-text">
+        <p>© 2026 Coin Bridge AG. All rights reserved.</p>
+        <p>
+          Nothing on this site is investment, legal, or tax advice. Read the full
+          <a href="risk-warning.html">Risk Warning</a>.
+        </p>
+      </div>
       <div class="footer-socials">
         <a href="https://x.com/KaiPlatform" target="_blank" aria-label="Twitter">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

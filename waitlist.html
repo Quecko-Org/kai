@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kai — Join the waitlist</title>
+  <meta name="description" content="Kai is launching soon. Join the waitlist for early access." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/png" href="/assets/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kai" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://www.kai.xyz/waitlist.html" />
+  <meta property="og:title" content="Kai — Join the waitlist" />
+  <meta property="og:description" content="Kai is launching soon. Join the waitlist for early access." />
+  <meta property="og:image" content="https://www.kai.xyz/assets/share-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kai — Join the waitlist" />
+  <meta name="twitter:description" content="Kai is launching soon. Join the waitlist for early access." />
+  <meta name="twitter:image" content="https://www.kai.xyz/assets/share-image.png" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/legal.css" />
+  <style>
+    .wl {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 72px 40px 120px;
+    }
+
+    .wl-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .wl-eyebrow {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--light-muted);
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    .wl-title {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 4.6vw, 54px);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--light-text);
+      margin: 0 0 14px;
+      text-wrap: balance;
+    }
+
+    .wl-lede {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(19, 31, 31, 0.78);
+      margin: 0 auto;
+      max-width: 460px;
+    }
+
+    .wl-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 1px 2px rgba(19, 31, 31, 0.04);
+    }
+
+    .wl-field {
+      margin-bottom: 20px;
+    }
+
+    .wl-field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--light-text);
+      margin-bottom: 8px;
+    }
+
+    .wl-req {
+      color: var(--teal);
+      margin-left: 2px;
+    }
+
+    .wl-field input[type="text"],
+    .wl-field input[type="email"] {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--light-text);
+      background: #fbfaf8;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 15px;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .wl-field input[type="text"]:focus,
+    .wl-field input[type="email"]:focus {
+      outline: none;
+      background: #ffffff;
+      border-color: var(--teal);
+    }
+
+    .wl-field.has-error input[type="text"],
+    .wl-field.has-error input[type="email"],
+    .wl-field.has-error .wl-combo-trigger {
+      border-color: #b3261e;
+    }
+
+    .wl-error {
+      display: none;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #b3261e;
+      margin-top: 6px;
+    }
+
+    .wl-field.has-error .wl-error {
+      display: block;
+    }
+
+    .wl-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 16px;
+    }
+
+    /* ── country combobox ───────────────────────────────── */
+    .wl-combo {
+      position: relative;
+    }
+
+    .wl-combo-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      text-align: left;
+      color: var(--light-text);
+      background: #fbfaf8;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 15px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .wl-combo-trigger:hover {
+      background: #ffffff;
+    }
+
+    .wl-combo-trigger:focus-visible {
+      outline: none;
+      background: #ffffff;
+      border-color: var(--teal);
+    }
+
+    .wl-combo.is-open .wl-combo-trigger {
+      background: #ffffff;
+      border-color: var(--teal);
+    }
+
+    .wl-combo-value {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .wl-combo-value.is-placeholder {
+      color: rgba(19, 31, 31, 0.45);
+    }
+
+    .wl-combo-caret {
+      flex-shrink: 0;
+      color: var(--teal);
+      transition: transform 0.2s;
+    }
+
+    .wl-combo.is-open .wl-combo-caret {
+      transform: rotate(180deg);
+    }
+
+    .wl-combo-panel {
+      position: absolute;
+      z-index: 40;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(19, 31, 31, 0.12);
+      overflow: hidden;
+    }
+
+    .wl-combo-panel[hidden] {
+      display: none;
+    }
+
+    .wl-combo-search {
+      position: relative;
+      padding: 12px 12px 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wl-combo-search svg {
+      position: absolute;
+      left: 26px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-top: 1px;
+      color: rgba(19, 31, 31, 0.4);
+      pointer-events: none;
+    }
+
+    /* scoped past ".wl-field input[type=text]" so the icon has room */
+    .wl-field .wl-combo-search input {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--light-text);
+      background: #f7f6f3;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      padding: 10px 12px 10px 38px;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .wl-field .wl-combo-search input:focus {
+      outline: none;
+      background: #ffffff;
+      border-color: var(--teal);
+    }
+
+    .wl-combo-list {
+      list-style: none;
+      margin: 0;
+      padding: 6px;
+      max-height: 244px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    .wl-combo-option {
+      font-size: 15px;
+      line-height: 1.4;
+      color: rgba(19, 31, 31, 0.85);
+      padding: 10px 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .wl-combo-option mark {
+      background: transparent;
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .wl-combo-option.is-active {
+      background: rgba(23, 62, 66, 0.07);
+      color: var(--light-text);
+    }
+
+    .wl-combo-option[aria-selected="true"] {
+      color: var(--teal);
+      font-weight: 500;
+    }
+
+    .wl-combo-option[aria-selected="true"]::after {
+      content: "";
+      width: 14px;
+      height: 9px;
+      flex-shrink: 0;
+      border-left: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg) translate(2px, -3px);
+    }
+
+    .wl-combo-empty {
+      font-size: 14px;
+      color: var(--light-muted);
+      padding: 16px 18px 18px;
+      margin: 0;
+    }
+
+    .wl-combo-empty[hidden] {
+      display: none;
+    }
+
+    /* ── consent + submit ───────────────────────────────── */
+    .wl-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 26px 0 24px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: #f7f6f3;
+      border: 1px solid var(--line);
+    }
+
+    .wl-consent input {
+      width: 18px;
+      height: 18px;
+      margin: 1px 0 0;
+      flex-shrink: 0;
+      accent-color: var(--teal);
+      cursor: pointer;
+    }
+
+    .wl-consent label {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(19, 31, 31, 0.8);
+      cursor: pointer;
+    }
+
+    .wl-consent a {
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .wl-hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .wl-submit {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffffff;
+      background: var(--teal);
+      border: none;
+      border-radius: 100px;
+      padding: 16px 28px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .wl-submit:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .wl-submit[disabled] {
+      opacity: 0.55;
+      cursor: default;
+      transform: none;
+    }
+
+    .wl-note {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--light-muted);
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .wl-formerror {
+      display: none;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #b3261e;
+      background: rgba(179, 38, 30, 0.06);
+      border: 1px solid rgba(179, 38, 30, 0.25);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+    }
+
+    .wl-formerror.is-shown {
+      display: block;
+    }
+
+    /* ── success state ──────────────────────────────────── */
+    .wl-success {
+      display: none;
+      text-align: center;
+      padding: 16px 0 8px;
+    }
+
+    .wl-success.is-shown {
+      display: block;
+    }
+
+    .wl-success-mark {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: rgba(23, 62, 66, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wl-success-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--light-text);
+      margin: 0 0 28px;
+    }
+
+    .wl-x {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--light-text);
+      background: #ffffff;
+      border: 1px solid rgba(19, 31, 31, 0.2);
+      border-radius: 100px;
+      padding: 13px 24px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .wl-x:hover {
+      background: #f7f6f3;
+      border-color: rgba(19, 31, 31, 0.4);
+    }
+
+    @media (max-width: 640px) {
+      .wl {
+        padding: 44px 16px 72px;
+      }
+
+      .wl-card {
+        padding: 26px 20px 30px;
+        border-radius: 18px;
+      }
+
+      .wl-row {
+        grid-template-columns: 1fr;
+      }
+
+      .wl-combo-list {
+        max-height: 210px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ═══ ANNOUNCEMENT ═══════════════════════════════════════ -->
+   <a class="serieslink" href="waitlist.html">
+  <div class="hero-announcement">
+    <span>Kai is launching soon. Join the waitlist for early access.</span>
+  </div>
+  </a>
+
+  <!-- ═══ NAV ════════════════════════════════════════════ -->
+  <nav id="main-nav">
+    <a href="index.html" style="text-decoration: none">
+      <div class="nav-logo-wrap">
+        <img class="nav-logo" src="assets/logo1-full.png" alt="Kai" />
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#roadmap">Roadmap</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="waitlist.html" class="nav-signup">Join the waitlist</a>
+    </div>
+  </nav>
+
+  <!-- ═══ WAITLIST ═══════════════════════════════════════ -->
+  <main class="wl">
+    <header class="wl-hero">
+      <p class="wl-eyebrow">Early access</p>
+      <h1 class="wl-title">Join the waitlist</h1>
+      <p class="wl-lede">Kai is launching soon. Leave your details and we'll email you when it's ready.</p>
+    </header>
+
+    <div class="wl-card">
+      <form id="waitlistForm" novalidate>
+        <div class="wl-formerror" id="formError" role="alert"></div>
+
+        <div class="wl-row">
+          <div class="wl-field" id="f-firstName">
+            <label for="firstName">First name<span class="wl-req" aria-hidden="true">*</span></label>
+            <input type="text" id="firstName" name="firstName" autocomplete="given-name" required />
+            <p class="wl-error">Please enter your first name.</p>
+          </div>
+
+          <div class="wl-field" id="f-lastName">
+            <label for="lastName">Last name<span class="wl-req" aria-hidden="true">*</span></label>
+            <input type="text" id="lastName" name="lastName" autocomplete="family-name" required />
+            <p class="wl-error">Please enter your last name.</p>
+          </div>
+        </div>
+
+        <div class="wl-field" id="f-email">
+          <label for="email">Email<span class="wl-req" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+          <p class="wl-error">Please enter a valid email address.</p>
+        </div>
+
+        <div class="wl-field" id="f-country">
+          <label id="countryLabel" for="countryTrigger">Country of origin<span class="wl-req" aria-hidden="true">*</span></label>
+          <div class="wl-combo" id="countryCombo">
+            <button type="button" class="wl-combo-trigger" id="countryTrigger" role="combobox"
+              aria-haspopup="listbox" aria-expanded="false" aria-controls="countryList"
+              aria-labelledby="countryLabel countryTrigger">
+              <span class="wl-combo-value is-placeholder" id="countryValue">Select your country</span>
+              <svg class="wl-combo-caret" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <div class="wl-combo-panel" id="countryPanel" hidden>
+              <div class="wl-combo-search">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6" />
+                  <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+                <input type="text" id="countrySearch" placeholder="Search countries" autocomplete="off"
+                  spellcheck="false" aria-label="Search countries" aria-controls="countryList"
+                  aria-autocomplete="list" />
+              </div>
+              <ul class="wl-combo-list" id="countryList" role="listbox" aria-label="Country of origin"></ul>
+              <p class="wl-combo-empty" id="countryEmpty" hidden>No countries match that search.</p>
+            </div>
+
+            <input type="hidden" id="country" name="country" value="" />
+          </div>
+          <p class="wl-error">Please select your country of origin.</p>
+        </div>
+
+        <!-- spam honeypot: hidden from people, usually filled in by bots -->
+        <div class="wl-hp" aria-hidden="true">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="wl-consent">
+          <input type="checkbox" id="marketingConsent" name="marketingConsent" />
+          <label for="marketingConsent">I agree to receive marketing emails from Kai. I can unsubscribe at any time. Read our <a href="privacy-notice.html">Privacy Notice</a>.</label>
+        </div>
+
+        <button type="submit" class="wl-submit" id="submitBtn">Join the waitlist</button>
+        <p class="wl-note">All fields marked * are required. The marketing box is optional.</p>
+      </form>
+
+      <div class="wl-success" id="waitlistSuccess" role="status">
+        <div class="wl-success-mark">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#173e42" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12.5l5 5L20 7" />
+          </svg>
+        </div>
+        <p class="wl-success-title">You're on the list! We'll email you when Kai is ready.</p>
+        <a class="wl-x" href="https://x.com/KaiPlatform" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M12.6 1.5H14.85L9.9 7.12L15.75 14.5H11.16L7.56 9.82L3.44 14.5H1.18L6.48 8.5L0.875 1.5H5.58L8.83 5.77L12.6 1.5ZM11.82 13.12H13.07L4.84 2.78H3.5L11.82 13.12Z"
+              fill="currentColor" />
+          </svg>
+          Follow Kai on X to stay updated
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo1-full.png" alt="Kai" />
+        <p>Financial clarity for everyone. Simple tools, real results.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#roadmap">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="privacy-notice.html">Privacy Notice</a></li>
+            <li><a href="cookie-notice.html">Cookie Notice</a></li>
+            <li><a href="risk-warning.html">Risk Warning</a></li>
+            <li><a href="acceptable-use-policy.html">Acceptable Use Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-legal-title">Company and Regulatory Information</p>
+
+      <p>
+        Coin Bridge AG, trading as KAI, is a company incorporated under the laws of Switzerland in the
+        canton of Zug, with business identification number CHE-110.571.003.
+      </p>
+
+      <p>
+        Coin Bridge AG is a member of VQF - Verein zur Qualitätssicherung von Finanzdienstleistungen
+        (<a href="https://www.vqf.ch" target="_blank" rel="noopener">https://www.vqf.ch</a>), a
+        self-regulatory organisation recognised by the Swiss Financial Market Supervisory Authority
+        (FINMA) under the Swiss Anti-Money Laundering Act. Coin Bridge AG is subject to VQF supervision
+        in respect of its anti-money-laundering obligations. This affiliation does not constitute a
+        banking licence or FINMA approval of the products offered. Coin Bridge AG is not a bank and is
+        not directly supervised by FINMA.
+      </p>
+
+      <p>VQF member no. 10127</p>
+
+      <p>
+        KAI is a financial technology platform. Banking and fiat account services, where available, are
+        provided by third-party banking or financial institution partners under their applicable terms.
+        Coin Bridge AG does not itself accept or hold public deposits. The relevant service provider and
+        contractual arrangements are identified in the documentation applicable to each service.
+      </p>
+
+      <p>
+        Balances held with Coin Bridge AG are not covered by the Swiss deposit protection scheme. Any
+        protection applicable to eligible deposits held with a partner bank depends on the relevant bank,
+        jurisdiction, account structure and applicable conditions. Such protection does not automatically
+        extend to all balances accessible through KAI.
+      </p>
+
+      <p>
+        Digital assets are not covered by Swiss deposit protection and may lose some or all of their
+        value.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-text">
+        <p>© 2026 Coin Bridge AG. All rights reserved.</p>
+        <p>
+          Nothing on this site is investment, legal, or tax advice. Read the full
+          <a href="risk-warning.html">Risk Warning</a>.
+        </p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://x.com/KaiPlatform" target="_blank" aria-label="Twitter">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M12.6 1.5H14.85L9.9 7.12L15.75 14.5H11.16L7.56 9.82L3.44 14.5H1.18L6.48 8.5L0.875 1.5H5.58L8.83 5.77L12.6 1.5ZM11.82 13.12H13.07L4.84 2.78H3.5L11.82 13.12Z"
+              fill="currentColor" />
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/company/kai-xyz" target="_blank" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M13.5 1.5H2.5C1.95 1.5 1.5 1.95 1.5 2.5V13.5C1.5 14.05 1.95 14.5 2.5 14.5H13.5C14.05 14.5 14.5 14.05 14.5 13.5V2.5C14.5 1.95 14.05 1.5 13.5 1.5ZM5.5 12.5H3.5V6.5H5.5V12.5ZM4.5 5.5C3.95 5.5 3.5 5.05 3.5 4.5C3.5 3.95 3.95 3.5 4.5 3.5C5.05 3.5 5.5 3.95 5.5 4.5C5.5 5.05 5.05 5.5 4.5 5.5ZM12.5 12.5H10.5V9.5C10.5 8.67 9.83 8 9 8C8.17 8 7.5 8.67 7.5 9.5V12.5H5.5V6.5H7.5V7.5C7.9 6.9 8.65 6.5 9.5 6.5C11.16 6.5 12.5 7.84 12.5 9.5V12.5Z"
+              fill="currentColor" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─────────────────────────────────────────────────────────────────
+    // WAITLIST FORM
+    //
+    // TODO (Kai / backend): set WAITLIST_ENDPOINT to the URL that receives
+    // the submission. Until it is set, the form refuses to submit so that
+    // no sign-up is silently lost.
+    //
+    // The endpoint receives this JSON and must:
+    //   1. email it to the leads address (Kai to provide);
+    //   2. retry if the email fails, and keep a temporary copy on the
+    //      server only until the email has gone out;
+    //   3. reject the request when "company" is not empty (honeypot);
+    //   4. rate-limit repeat submissions from the same IP address.
+    // Add a CAPTCHA later if spam still gets through.
+    //
+    // { firstName, lastName, email, country,
+    //   marketingConsent: true/false,
+    //   consentTextShown: "<exact words the person saw>" | null,
+    //   consentGivenAtUtc: "2026-10-22T10:30:00.000Z" | null,
+    //   sourcePage: "<the page the person came from>",
+    //   submittedAtUtc: "..." }
+    // ─────────────────────────────────────────────────────────────────
+    const WAITLIST_ENDPOINT = "";
+
+    const CONSENT_TEXT =
+      "I agree to receive marketing emails from Kai. I can unsubscribe at any time. Read our Privacy Notice.";
+
+    const COUNTRIES = ["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo (Brazzaville)","Congo (Kinshasa)","Costa Rica","Côte d'Ivoire","Croatia","Cuba","Cyprus","Czechia","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macao","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"];
+
+    const form = document.getElementById("waitlistForm");
+    const successBox = document.getElementById("waitlistSuccess");
+    const formError = document.getElementById("formError");
+    const submitBtn = document.getElementById("submitBtn");
+
+    // the page the person came from, kept for the lead email
+    let sourcePage = document.referrer || "";
+    try {
+      const stored = sessionStorage.getItem("kaiWaitlistSource");
+      if (stored) sourcePage = stored;
+      else if (sourcePage) sessionStorage.setItem("kaiWaitlistSource", sourcePage);
+    } catch (e) { /* private mode: not important */ }
+
+    function setError(fieldId, on) {
+      document.getElementById("f-" + fieldId).classList.toggle("has-error", on);
+    }
+
+    // ── country combobox ────────────────────────────────────────────
+    const combo = document.getElementById("countryCombo");
+    const trigger = document.getElementById("countryTrigger");
+    const panel = document.getElementById("countryPanel");
+    const search = document.getElementById("countrySearch");
+    const list = document.getElementById("countryList");
+    const emptyMsg = document.getElementById("countryEmpty");
+    const valueLabel = document.getElementById("countryValue");
+    const countryInput = document.getElementById("country");
+
+    let shown = COUNTRIES.slice();
+    let activeIndex = -1;
+
+    const fold = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    const escapeHtml = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+    function highlight(name, query) {
+      if (!query) return escapeHtml(name);
+      const i = fold(name).indexOf(fold(query));
+      if (i < 0) return escapeHtml(name);
+      return escapeHtml(name.slice(0, i)) + "<mark>" + escapeHtml(name.slice(i, i + query.length)) +
+        "</mark>" + escapeHtml(name.slice(i + query.length));
+    }
+
+    function renderList(query) {
+      const q = fold(query.trim());
+      if (!q) shown = COUNTRIES.slice();
+      else {
+        // names that start with the query first, then names that contain it
+        const starts = [], contains = [];
+        for (const name of COUNTRIES) {
+          const f = fold(name);
+          if (f.startsWith(q)) starts.push(name);
+          else if (f.includes(q)) contains.push(name);
+        }
+        shown = starts.concat(contains);
+      }
+      list.innerHTML = shown.map((name, i) =>
+        '<li class="wl-combo-option" role="option" id="country-opt-' + i + '" data-value="' +
+        escapeHtml(name) + '" aria-selected="' + (name === countryInput.value) + '">' +
+        "<span>" + highlight(name, query.trim()) + "</span></li>").join("");
+      emptyMsg.hidden = shown.length > 0;
+      // while searching, highlight the first result; with no query, the chosen country
+      const chosen = shown.indexOf(countryInput.value);
+      list.scrollTop = 0;
+      setActive(shown.length === 0 ? -1 : (q ? 0 : (chosen >= 0 ? chosen : 0)));
+    }
+
+    function setActive(i, scroll = true) {
+      activeIndex = i;
+      [...list.children].forEach((el, n) => el.classList.toggle("is-active", n === i));
+      if (i < 0) { search.removeAttribute("aria-activedescendant"); return; }
+      search.setAttribute("aria-activedescendant", "country-opt-" + i);
+      if (scroll && list.children[i]) list.children[i].scrollIntoView({ block: "nearest" });
+    }
+
+    function openCombo() {
+      if (!panel.hidden) return;
+      panel.hidden = false;
+      combo.classList.add("is-open");
+      trigger.setAttribute("aria-expanded", "true");
+      search.value = "";
+      renderList("");
+      search.focus();
+      const chosen = shown.indexOf(countryInput.value);
+      if (chosen >= 0) setActive(chosen);
+    }
+
+    function closeCombo(focusTrigger = true) {
+      if (panel.hidden) return;
+      panel.hidden = true;
+      combo.classList.remove("is-open");
+      trigger.setAttribute("aria-expanded", "false");
+      if (focusTrigger) trigger.focus();
+    }
+
+    function choose(name) {
+      countryInput.value = name;
+      valueLabel.textContent = name;
+      valueLabel.classList.remove("is-placeholder");
+      setError("country", false);
+      closeCombo();
+    }
+
+    trigger.addEventListener("click", () => (panel.hidden ? openCombo() : closeCombo()));
+
+    trigger.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") { e.preventDefault(); openCombo(); }
+    });
+
+    search.addEventListener("input", () => renderList(search.value));
+
+    search.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") { e.preventDefault(); if (shown.length) setActive((activeIndex + 1) % shown.length); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); if (shown.length) setActive((activeIndex - 1 + shown.length) % shown.length); }
+      else if (e.key === "Home") { e.preventDefault(); if (shown.length) setActive(0); }
+      else if (e.key === "End") { e.preventDefault(); if (shown.length) setActive(shown.length - 1); }
+      else if (e.key === "Enter") { e.preventDefault(); if (activeIndex >= 0 && shown[activeIndex]) choose(shown[activeIndex]); }
+      else if (e.key === "Escape") { e.preventDefault(); closeCombo(); }
+      else if (e.key === "Tab") closeCombo(false);
+    });
+
+    list.addEventListener("mousedown", (e) => {
+      const opt = e.target.closest(".wl-combo-option");
+      if (opt) { e.preventDefault(); choose(opt.dataset.value); }
+    });
+
+    list.addEventListener("mousemove", (e) => {
+      const opt = e.target.closest(".wl-combo-option");
+      if (opt) setActive([...list.children].indexOf(opt), false);
+    });
+
+    document.addEventListener("mousedown", (e) => {
+      if (!combo.contains(e.target)) closeCombo(false);
+    });
+
+    renderList("");
+
+    // ── validation ──────────────────────────────────────────────────
+    function validate() {
+      const v = (id) => document.getElementById(id).value.trim();
+      const checks = {
+        firstName: v("firstName").length > 0,
+        lastName: v("lastName").length > 0,
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v("email")),
+        country: v("country").length > 0,
+      };
+      let firstBad = null;
+      Object.keys(checks).forEach((id) => {
+        setError(id, !checks[id]);
+        if (!checks[id] && !firstBad) firstBad = id;
+      });
+      if (firstBad) document.getElementById(firstBad === "country" ? "countryTrigger" : firstBad).focus();
+      return !firstBad;
+    }
+
+    ["firstName", "lastName", "email"].forEach((id) => {
+      document.getElementById(id).addEventListener("input", () => setError(id, false));
+    });
+
+    function showFormError(message) {
+      formError.textContent = message;
+      formError.classList.add("is-shown");
+    }
+
+    function showSuccess() {
+      form.style.display = "none";
+      successBox.classList.add("is-shown");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      formError.classList.remove("is-shown");
+
+      // honeypot: a bot filled the hidden field, so drop it without saying so
+      if (document.getElementById("company").value !== "") {
+        showSuccess();
+        return;
+      }
+
+      if (!validate()) return;
+
+      const consent = document.getElementById("marketingConsent").checked;
+      const payload = {
+        firstName: document.getElementById("firstName").value.trim(),
+        lastName: document.getElementById("lastName").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        country: countryInput.value,
+        marketingConsent: consent,
+        consentTextShown: consent ? CONSENT_TEXT : null,
+        consentGivenAtUtc: consent ? new Date().toISOString() : null,
+        sourcePage: sourcePage,
+        submittedAtUtc: new Date().toISOString(),
+      };
+
+      if (!WAITLIST_ENDPOINT) {
+        showFormError(
+          "This form is not connected yet, so your details were not sent. Set WAITLIST_ENDPOINT in waitlist.html before going live."
+        );
+        console.warn("Waitlist submission (not sent, no endpoint configured):", payload);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      try {
+        const res = await fetch(WAITLIST_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error("Request failed: " + res.status);
+        showSuccess();
+      } catch (err) {
+        showFormError("Something went wrong and we could not add you to the list. Please try again.");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Join the waitlist";
+      }
+    });
+
+    // For design review only: waitlist.html?state=success shows the success state.
+    if (new URLSearchParams(location.search).get("state") === "success") showSuccess();
+
+    // Nav background once the page scrolls
+    const nav = document.getElementById("main-nav");
+    function updateNav() {
+      if (window.scrollY > 8) nav.classList.add("scrolled");
+      else nav.classList.remove("scrolled");
+    }
+    window.addEventListener("scroll", updateNav, { passive: true });
+    updateNav();
+  </script>
+</body>
+
+</html>

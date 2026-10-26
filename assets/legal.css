@@ -720,3 +720,54 @@ footer {
     padding: 10px 12px;
   }
 }
+
+/* ─── Compliance footer block (Oct 2026) ─────────────── */
+.footer-legal p {
+  max-width: 760px;
+}
+
+.footer-legal .footer-legal-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin-bottom: 12px;
+}
+
+.footer-legal .footer-planned {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(240, 244, 243, 0.68);
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.footer-bottom-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 760px;
+}
+
+.footer-bottom-text p {
+  margin: 0;
+}
+
+.footer-bottom-text a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+
+.footer-bottom-text a:hover {
+  color: var(--dark-text);
+}
+
+@media (max-width: 900px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}
