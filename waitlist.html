@@ -9,11 +9,13 @@
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="icon" type="image/png" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/assets/kai_icon_dark.svg" />
+  <link rel="icon" type="image/svg+xml" href="/assets/kai_icon_light.svg" media="(prefers-color-scheme: dark)" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Kai" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:url" content="https://www.kai.xyz/waitlist.html" />
+  <meta property="og:url" content="https://www.kai.xyz/waitlist" />
+  <link rel="canonical" href="https://www.kai.xyz/waitlist" />
   <meta property="og:title" content="Kai — Join the waitlist" />
   <meta property="og:description" content="Kai is launching soon. Join the waitlist for early access." />
   <meta property="og:image" content="https://www.kai.xyz/assets/share-image.png" />
@@ -473,7 +475,7 @@
 
 <body>
   <!-- ═══ ANNOUNCEMENT ═══════════════════════════════════════ -->
-   <a class="serieslink" href="waitlist.html">
+   <a class="serieslink" href="/waitlist">
   <div class="hero-announcement">
     <span>Kai is launching soon. Join the waitlist for early access.</span>
   </div>
@@ -483,7 +485,7 @@
   <nav id="main-nav">
     <a href="index.html" style="text-decoration: none">
       <div class="nav-logo-wrap">
-        <img class="nav-logo" src="assets/logo1-full.png" alt="Kai" />
+        <img class="nav-logo" src="assets/kai_logo_dark.svg" alt="Kai" />
       </div>
     </a>
 
@@ -494,7 +496,7 @@
     </ul>
 
     <div class="nav-actions">
-      <a href="waitlist.html" class="nav-signup">Join the waitlist</a>
+      <a href="/waitlist" class="nav-signup">Join the waitlist</a>
     </div>
   </nav>
 
@@ -601,7 +603,7 @@
   <footer id="footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <img class="footer-logo" src="assets/logo1-full.png" alt="Kai" />
+        <img class="footer-logo" src="assets/kai_logo_light.svg" alt="Kai" />
         <p>Financial clarity for everyone. Simple tools, real results.</p>
       </div>
       <div class="footer-links">
@@ -696,19 +698,19 @@
     // ─────────────────────────────────────────────────────────────────
     // WAITLIST FORM
     //
-    // TODO (Kai / backend): set WAITLIST_ENDPOINT to the URL that receives
-    // the submission. Until it is set, the form refuses to submit so that
-    // no sign-up is silently lost.
+    // WAITLIST_ENDPOINT is the Google Apps Script web app URL from
+    // apps-script/waitlist.gs (it ends in /exec). Until it is set, the form
+    // refuses to submit so that no sign-up is silently lost.
     //
-    // The endpoint receives this JSON and must:
-    //   1. email it to the leads address (Kai to provide);
-    //   2. retry if the email fails, and keep a temporary copy on the
-    //      server only until the email has gone out;
-    //   3. reject the request when "company" is not empty (honeypot);
-    //   4. rate-limit repeat submissions from the same IP address.
-    // Add a CAPTCHA later if spam still gets through.
+    // The script appends one row per lead to the Kai waitlist Sheet,
+    // rejects the request when "company" is not empty (honeypot) and
+    // rate-limits repeat submissions. Add a CAPTCHA later if spam still
+    // gets through.
     //
-    // { firstName, lastName, email, country,
+    // The body is sent as text/plain so the browser does not send a CORS
+    // preflight, which Apps Script cannot answer. The script parses it as JSON.
+    //
+    // { firstName, lastName, email, country, company,
     //   marketingConsent: true/false,
     //   consentTextShown: "<exact words the person saw>" | null,
     //   consentGivenAtUtc: "2026-10-22T10:30:00.000Z" | null,
@@ -908,6 +910,7 @@
         lastName: document.getElementById("lastName").value.trim(),
         email: document.getElementById("email").value.trim(),
         country: countryInput.value,
+        company: document.getElementById("company").value,
         marketingConsent: consent,
         consentTextShown: consent ? CONSENT_TEXT : null,
         consentGivenAtUtc: consent ? new Date().toISOString() : null,
@@ -928,10 +931,13 @@
       try {
         const res = await fetch(WAITLIST_ENDPOINT, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(payload),
         });
         if (!res.ok) throw new Error("Request failed: " + res.status);
+        // Apps Script always answers 200, so the result is in the body
+        const result = await res.json();
+        if (!result.ok) throw new Error("Rejected: " + result.error);
         showSuccess();
       } catch (err) {
         showFormError("Something went wrong and we could not add you to the list. Please try again.");

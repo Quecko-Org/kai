@@ -7,7 +7,8 @@
   <title>Kai — Manage Your Financial Life</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="icon" type="image/png" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/assets/kai_icon_dark.svg" />
+  <link rel="icon" type="image/svg+xml" href="/assets/kai_icon_light.svg" media="(prefers-color-scheme: dark)" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Kai" />
   <meta property="og:locale" content="en_US" />
@@ -111,8 +112,6 @@
       height: 32px;
       width: auto;
       display: block;
-      filter: brightness(0) invert(1);
-      /* black → white for dark footer */
     }
 
     .nav-links {
@@ -4419,7 +4418,7 @@
 
 <body>
   <!-- ═══ ANNOUNCEMENT ═══════════════════════════════════════ -->
-  <a class="serieslink" href="waitlist.html">
+  <a class="serieslink" href="/waitlist">
     <div class="hero-announcement">
     <span>Kai is launching soon. Join the waitlist for early access.
     </span>
@@ -4432,11 +4431,11 @@
       <div class="innernavv">
         <a href="index.html" style="text-decoration: none">
           <div class="nav-logo-wrap" id="navLogoWrap">
-            <img class="nav-logo" id="navLogo" src="assets/logo1-full.png" alt="Kai" />
+            <img class="nav-logo" id="navLogo" src="assets/kai_logo_dark.svg" alt="Kai" />
           </div>
         </a>
         <div class="nav-actions">
-          <a href="waitlist.html" class="nav-signup">Join the waitlist</a>
+          <a href="/waitlist" class="nav-signup">Join the waitlist</a>
         </div>
       </div>
       <ul class="nav-linkss">
@@ -4449,7 +4448,7 @@
   <nav class="phonenav" id="main-nav">
     <a href="index.html" style="text-decoration: none">
       <div class="nav-logo-wrap" id="navLogoWrap">
-        <img class="nav-logo" id="navLogo" src="assets/logo1-full.png" alt="Kai" />
+        <img class="nav-logo" id="navLogo" src="assets/kai_logo_dark.svg" alt="Kai" />
       </div>
     </a>
 
@@ -4460,7 +4459,7 @@
     </ul>
 
     <div class="nav-actions">
-      <a href="waitlist.html" class="nav-signup">Join the waitlist</a>
+      <a href="/waitlist" class="nav-signup">Join the waitlist</a>
     </div>
   </nav>
 
@@ -4804,7 +4803,7 @@
         </div>
         <div class="cta-actions">
           <div class="row">
-            <a href="waitlist.html" class="btn-white">Join the waitlist</a>
+            <a href="/waitlist" class="btn-white">Join the waitlist</a>
           </div>
         </div>
       </div>
@@ -4816,7 +4815,7 @@
   <footer id="footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <img class="footer-logo" src="assets/logo1-full.png" alt="Kai" />
+        <img class="footer-logo" src="assets/kai_logo_light.svg" alt="Kai" />
         <p>Financial clarity for everyone. Simple tools, real results.</p>
       </div>
 
@@ -4963,20 +4962,20 @@
       });
     }
 
-    // ── Set logo (single fixed variant: logo1-full)
+    // ── Set logo (new Kai lockup: dark mark in the header, light mark on the dark footer)
     const navLogoWrap = document.getElementById("navLogoWrap");
     const navLogo = document.getElementById("navLogo");
     const logoFooter = document.querySelector(".footer-logo");
-    if (navLogo) navLogo.src = "assets/logo1-full.png";
+    if (navLogo) navLogo.src = "assets/kai_logo_dark.svg";
     if (navLogoWrap) {
-      navLogoWrap.style.width = "74px";
+      navLogoWrap.style.width = 28 * (2418.3 / 753.25) + "px";
       navLogoWrap.style.height = "28px";
       navLogoWrap.style.cursor = "default";
     }
     if (logoFooter) {
-      logoFooter.src = "assets/logo1-full.png";
+      logoFooter.src = "assets/kai_logo_light.svg";
       logoFooter.style.height = "32px";
-      logoFooter.style.width = 32 * (880 / 334) + "px";
+      logoFooter.style.width = 32 * (2418.3 / 753.25) + "px";
     }
 
     // Nav: transparent at the very top, translucent bg as soon as user starts scrolling

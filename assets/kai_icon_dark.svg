@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="196.77 249.89 699.37 699.37" width="699" height="699">
+<g id="kai-icon" transform="translate(112.08 165) scale(1.086162)">
+  <g id="piece-top" transform="rotate(0 400 400)">
+    <g id="bar-top"><path fill="#0B181F" d="M346,78 H454 Q460,78 460,84 V299 Q460,305 454,304.7 Q396.05,312.38 340.00,306.67 V84 Q340,78 346,78 Z"/></g>
+    <g id="sickle-top"><path fill="#0B181F" d="M340,232 L255,150 L162,240 Q236.54,296.13 340.00,306.67 L344.00,307.17 L344,236 Z"/></g>
+  </g>
+  <g id="piece-right" transform="rotate(90 400 400)">
+    <g id="bar-right"><path fill="#0B181F" d="M346,78 H454 Q460,78 460,84 V299 Q460,305 454,304.7 Q396.05,312.38 340.00,306.67 V84 Q340,78 346,78 Z"/></g>
+    <g id="sickle-right"><path fill="#0B181F" d="M340,232 L255,150 L162,240 Q236.54,296.13 340.00,306.67 L344.00,307.17 L344,236 Z"/></g>
+  </g>
+  <g id="piece-bottom" transform="rotate(180 400 400)">
+    <g id="bar-bottom"><path fill="#0B181F" d="M346,78 H454 Q460,78 460,84 V299 Q460,305 454,304.7 Q396.05,312.38 340.00,306.67 V84 Q340,78 346,78 Z"/></g>
+    <g id="sickle-bottom"><path fill="#0B181F" d="M340,232 L255,150 L162,240 Q236.54,296.13 340.00,306.67 L344.00,307.17 L344,236 Z"/></g>
+  </g>
+  <g id="piece-left" transform="rotate(270 400 400)">
+    <g id="bar-left"><path fill="#0B181F" d="M346,78 H454 Q460,78 460,84 V299 Q460,305 454,304.7 Q396.05,312.38 340.00,306.67 V84 Q340,78 346,78 Z"/></g>
+    <g id="sickle-left"><path fill="#0B181F" d="M340,232 L255,150 L162,240 Q236.54,296.13 340.00,306.67 L344.00,307.17 L344,236 Z"/></g>
+  </g>
+ </g>
+</svg>
