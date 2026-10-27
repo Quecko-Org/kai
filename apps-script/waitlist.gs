@@ -100,6 +100,12 @@ function safe(value) {
   return /^[=+\-@]/.test(text) ? "'" + text : text;
 }
 
+// Run this once from the Apps Script editor so Google asks for permission
+// to edit the Sheet. The web app cannot run until that is granted.
+function authorize() {
+  SpreadsheetApp.openById(SHEET_ID).getName();
+}
+
 function reply(body) {
   return ContentService.createTextOutput(JSON.stringify(body))
     .setMimeType(ContentService.MimeType.JSON);
