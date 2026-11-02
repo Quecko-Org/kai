@@ -32,6 +32,32 @@ const COLUMNS = [
 const SAME_EMAIL_SECONDS = 60;     // one submission per email per minute
 const GLOBAL_PER_MINUTE = 30;      // all submissions together per minute
 
+// Health check. Open the /exec URL in a browser to see whether this script can
+// actually reach the Sheet. It only reads: no row is ever written. Safe to
+// delete once submissions are landing correctly.
+function doGet() {
+  const out = { check: "kai waitlist", ok: true };
+  try {
+    const file = SpreadsheetApp.openById(SHEET_ID);
+    const sheets = file.getSheets();
+    const first = sheets[0];
+    out.canOpenSheet = true;
+    out.tabs = sheets.map(function (sh) { return sh.getName(); });
+    out.writingToTab = first.getName();
+    out.rowsInTab = first.getLastRow();
+    out.headersInTab = first.getLastRow() > 0
+      ? first.getRange(1, 1, 1, first.getLastColumn()).getValues()[0]
+      : [];
+    out.headersExpected = COLUMNS.map(function (c) { return c[0]; });
+  } catch (err) {
+    out.ok = false;
+    out.canOpenSheet = false;
+    out.error = "cannot_open_sheet";
+    out.detail = String(err);
+  }
+  return reply(out);
+}
+
 function doPost(e) {
   let data;
   try {
@@ -74,6 +100,10 @@ function doPost(e) {
       return column ? cellValue(column[1], data) : "";
     });
     sheet.appendRow(row);
+  } catch (err) {
+    // Without this, Apps Script answers with an HTML error page, the website's
+    // res.json() throws, and the visitor only sees "something went wrong".
+    return reply({ ok: false, error: "sheet_write_failed", detail: String(err) });
   } finally {
     lock.releaseLock();
   }
