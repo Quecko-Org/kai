@@ -92,7 +92,8 @@
     }
 
     .wl-field input[type="text"],
-    .wl-field input[type="email"] {
+    .wl-field input[type="email"],
+    .wl-field input[type="url"] {
       width: 100%;
       font-family: var(--font-body);
       font-size: 16px;
@@ -108,7 +109,8 @@
     }
 
     .wl-field input[type="text"]:focus,
-    .wl-field input[type="email"]:focus {
+    .wl-field input[type="email"]:focus,
+    .wl-field input[type="url"]:focus {
       outline: none;
       background: #ffffff;
       border-color: var(--teal);
@@ -116,6 +118,7 @@
 
     .wl-field.has-error input[type="text"],
     .wl-field.has-error input[type="email"],
+    .wl-field.has-error input[type="url"],
     .wl-field.has-error .wl-combo-trigger {
       border-color: #b3261e;
     }
@@ -311,6 +314,90 @@
     }
 
     /* ── consent + submit ───────────────────────────────── */
+    /* ── "Are you a business?" switch ───────────────────── */
+    .wl-switch {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 26px;
+      padding: 15px 18px;
+      border-radius: 14px;
+      background: #f7f6f3;
+      border: 1px solid var(--line);
+    }
+
+    .wl-switch label {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--light-text);
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .wl-switch input {
+      position: relative;
+      flex-shrink: 0;
+      width: 46px;
+      height: 26px;
+      margin: 0;
+      border-radius: 100px;
+      background: rgba(19, 31, 31, 0.2);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .wl-switch input::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(19, 31, 31, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .wl-switch input:checked {
+      background: var(--teal);
+    }
+
+    .wl-switch input:checked::after {
+      transform: translateX(20px);
+    }
+
+    .wl-switch input:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+    }
+
+    .wl-business {
+      margin-top: 20px;
+      animation: wlReveal 0.18s ease-out;
+    }
+
+    .wl-business[hidden] {
+      display: none;
+    }
+
+    .wl-business .wl-field:last-child {
+      margin-bottom: 0;
+    }
+
+    @keyframes wlReveal {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wl-business { animation: none; }
+    }
+
     .wl-consent {
       display: flex;
       align-items: flex-start;
@@ -564,6 +651,27 @@
           <p class="wl-error">Please select your country of origin.</p>
         </div>
 
+        <div class="wl-switch">
+          <label for="isBusiness">Are you a business?</label>
+          <input type="checkbox" id="isBusiness" name="isBusiness" role="switch"
+            aria-controls="businessFields" />
+        </div>
+
+        <div class="wl-business" id="businessFields" hidden>
+          <div class="wl-field" id="f-businessName">
+            <label for="businessName">Official business name<span class="wl-req" aria-hidden="true">*</span></label>
+            <input type="text" id="businessName" name="businessName" autocomplete="organization" />
+            <p class="wl-error">Please enter the official business name.</p>
+          </div>
+
+          <div class="wl-field" id="f-businessWebsite">
+            <label for="businessWebsite">Business website<span class="wl-req" aria-hidden="true">*</span></label>
+            <input type="url" id="businessWebsite" name="businessWebsite" inputmode="url"
+              autocomplete="url" placeholder="https://example.com" />
+            <p class="wl-error">Please enter a valid website address, for example https://example.com</p>
+          </div>
+        </div>
+
         <!-- spam honeypot: hidden from people, usually filled in by bots -->
         <div class="wl-hp" aria-hidden="true">
           <label for="company">Company</label>
@@ -711,6 +819,9 @@
     // preflight, which Apps Script cannot answer. The script parses it as JSON.
     //
     // { firstName, lastName, email, country, company,
+    //   isBusiness: true/false,
+    //   businessName: "<official name>" | null,
+    //   businessWebsite: "<website>" | null,
     //   marketingConsent: true/false,
     //   consentTextShown: "<exact words the person saw>" | null,
     //   consentGivenAtUtc: "2026-10-22T10:30:00.000Z" | null,
@@ -860,6 +971,31 @@
 
     renderList("");
 
+    // ── "Are you a business?" ───────────────────────────────────────
+    // Off by default. Switched on, the two business fields appear and
+    // both become required.
+    const businessToggle = document.getElementById("isBusiness");
+    const businessFields = document.getElementById("businessFields");
+
+    // accepts example.com, www.example.com and https://example.com/path
+    const WEBSITE_RE = /^(https?:\/\/)?([\w-]+\.)+[a-z]{2,}(:\d+)?([\/?#][^\s]*)?$/i;
+
+    businessToggle.checked = false;
+    businessFields.hidden = true;
+
+    businessToggle.addEventListener("change", () => {
+      businessFields.hidden = !businessToggle.checked;
+      if (businessToggle.checked) {
+        document.getElementById("businessName").focus();
+      } else {
+        // leaving business mode must not keep stale errors or stale answers
+        setError("businessName", false);
+        setError("businessWebsite", false);
+        document.getElementById("businessName").value = "";
+        document.getElementById("businessWebsite").value = "";
+      }
+    });
+
     // ── validation ──────────────────────────────────────────────────
     function validate() {
       const v = (id) => document.getElementById(id).value.trim();
@@ -869,6 +1005,10 @@
         email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v("email")),
         country: v("country").length > 0,
       };
+      if (businessToggle.checked) {
+        checks.businessName = v("businessName").length > 0;
+        checks.businessWebsite = WEBSITE_RE.test(v("businessWebsite"));
+      }
       let firstBad = null;
       Object.keys(checks).forEach((id) => {
         setError(id, !checks[id]);
@@ -878,7 +1018,7 @@
       return !firstBad;
     }
 
-    ["firstName", "lastName", "email"].forEach((id) => {
+    ["firstName", "lastName", "email", "businessName", "businessWebsite"].forEach((id) => {
       document.getElementById(id).addEventListener("input", () => setError(id, false));
     });
 
@@ -906,11 +1046,15 @@
       if (!validate()) return;
 
       const consent = document.getElementById("marketingConsent").checked;
+      const isBusiness = businessToggle.checked;
       const payload = {
         firstName: document.getElementById("firstName").value.trim(),
         lastName: document.getElementById("lastName").value.trim(),
         email: document.getElementById("email").value.trim(),
         country: countryInput.value,
+        isBusiness: isBusiness,
+        businessName: isBusiness ? document.getElementById("businessName").value.trim() : null,
+        businessWebsite: isBusiness ? document.getElementById("businessWebsite").value.trim() : null,
         company: document.getElementById("company").value,
         marketingConsent: consent,
         consentTextShown: consent ? CONSENT_TEXT : null,

@@ -19,6 +19,9 @@ const COLUMNS = [
   ["Last name", "lastName"],
   ["Email", "email"],
   ["Country of origin", "country"],
+  ["Business?", "isBusiness"],
+  ["Business name", "businessName"],
+  ["Business website", "businessWebsite"],
   ["Marketing consent", "marketingConsent"],
   ["Consent text shown", "consentTextShown"],
   ["Consent given at (UTC)", "consentGivenAtUtc"],
@@ -43,6 +46,11 @@ function doPost(e) {
   const email = String(data.email || "").trim().toLowerCase();
   if (!data.firstName || !data.lastName || !data.country ||
       !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+    return reply({ ok: false, error: "invalid" });
+  }
+
+  // a business lead must name the business and its website
+  if (data.isBusiness === true && (!data.businessName || !data.businessWebsite)) {
     return reply({ ok: false, error: "invalid" });
   }
 
@@ -80,13 +88,26 @@ function ensureHeaders(sheet) {
     sheet.appendRow(headers);
     return headers;
   }
-  return sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+  const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
     .map((h) => String(h).trim());
+  // add any column this script knows about that the Sheet does not have yet,
+  // so an existing Sheet picks up new fields without being rebuilt
+  const missing = COLUMNS.map(([text]) => text).filter((text) => headers.indexOf(text) < 0);
+  if (missing.length) {
+    sheet.getRange(1, headers.length + 1, 1, missing.length).setValues([missing]);
+    return headers.concat(missing);
+  }
+  return headers;
 }
 
 function cellValue(field, data) {
   const consent = data.marketingConsent === true;
+  const isBusiness = data.isBusiness === true;
   if (field === "marketingConsent") return consent ? "yes" : "no";
+  if (field === "isBusiness") return isBusiness ? "yes" : "no";
+  if (field === "businessName" || field === "businessWebsite") {
+    return isBusiness ? safe(data[field]) : "";
+  }
   if (field === "consentTextShown" || field === "consentGivenAtUtc") {
     return consent ? safe(data[field]) : "";
   }
