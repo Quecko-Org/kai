@@ -145,9 +145,11 @@ nav.scrolled {
   transform: translateY(-1px);
 }
 
+/* The button used to flip to a dark fill the moment the page scrolled, which
+   read as a jerk. It now keeps one appearance. */
 nav.scrolled .nav-signup {
-  background: var(--light-text);
-  color: #fff;
+  background: white;
+  color: var(--light-text);
 }
 
 /* ─── LEGAL DOCUMENT ──────────────────────────────── */

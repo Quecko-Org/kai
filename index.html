@@ -6,10 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kai platform | Unified finance. Unlocked limits.</title>
   <meta name="description" content="Kai platform is building the future of finance: fiat, crypto, trading and a card in one place, powered by AI. Become the First." />
+  <link rel="preload" as="image" href="assets/hero-bg-2.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/svg+xml" href="/assets/kai_icon_dark.svg" />
   <link rel="icon" type="image/svg+xml" href="/assets/kai_icon_light.svg" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" sizes="any" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Kai" />
   <meta property="og:locale" content="en_US" />
@@ -199,9 +204,11 @@
       background: rgba(19, 31, 31, 0.05);
     }
 
+    /* The button used to flip to a dark fill the moment the page scrolled,
+       which read as a jerk. It now keeps one appearance. */
     nav.scrolled .nav-signup {
-      background: var(--light-text);
-      color: #fff;
+      background: white;
+      color: var(--light-text);
     }
 
     /* New logos are already black — no filter needed */
@@ -275,7 +282,7 @@
       z-index: 0;
       background-color: #d6c7af;
       /* warm fallback while image loads */
-      background-image: url("assets/hero-bg-2.png");
+      background-image: url("assets/hero-bg-2.jpg");
       background-size: 115% 115%;
       background-position: center;
       background-repeat: no-repeat;
@@ -857,20 +864,23 @@
       }
 
       /* The mockup fades and slides in after a delay, which reads as a jump on
-         a phone. On small screens it is shown in place, with no animation. */
+         a phone. On small screens it is shown in place, with no animation.
+         margin-top is a fixed gap here, because the "auto" above would push the
+         mockup to the bottom of the hero and leave a large empty band. */
       .hero-dashboard-wrap {
         opacity: 1;
         animation: none;
         transform: none;
         filter: none;
+        margin-top: 28px;
       }
 
-      /* A phone's address bar hides as you scroll, which changes what 100vh
-         means and shifts the whole hero. The mockup sits at the bottom of the
-         hero, so it moves the most: that is the jump. 100svh stays fixed.
-         Browsers without svh simply keep the 100vh above. */
+      /* The hero was a full screen tall, so the mockup was pinned to the bottom
+         and sat far below the text. On a phone the hero is now as tall as its
+         content. This also removes the jump when the address bar hides, because
+         nothing depends on the viewport height any more. */
       .hero {
-        min-height: 100svh;
+        min-height: auto;
       }
 
       /* The background drifts and re-filters forever. On a phone that repaints

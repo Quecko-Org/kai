@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/svg+xml" href="/assets/kai_icon_dark.svg" />
   <link rel="icon" type="image/svg+xml" href="/assets/kai_icon_light.svg" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" sizes="any" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Kai" />
   <meta property="og:locale" content="en_US" />
@@ -263,9 +267,11 @@
       transform: translateY(-1px);
     }
 
+    /* The button used to flip to a dark fill the moment the page scrolled,
+       which read as a jerk. It now keeps one appearance. */
     nav.scrolled .nav-signup {
-      background: var(--light-text);
-      color: #fff;
+      background: white;
+      color: var(--light-text);
     }
 
     /* ─── HERO ────────────────────────────────────────── */
