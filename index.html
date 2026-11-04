@@ -855,6 +855,29 @@
         padding: 10px 16px;
         white-space: normal;
       }
+
+      /* The mockup fades and slides in after a delay, which reads as a jump on
+         a phone. On small screens it is shown in place, with no animation. */
+      .hero-dashboard-wrap {
+        opacity: 1;
+        animation: none;
+        transform: none;
+        filter: none;
+      }
+
+      /* A phone's address bar hides as you scroll, which changes what 100vh
+         means and shifts the whole hero. The mockup sits at the bottom of the
+         hero, so it moves the most: that is the jump. 100svh stays fixed.
+         Browsers without svh simply keep the 100vh above. */
+      .hero {
+        min-height: 100svh;
+      }
+
+      /* The background drifts and re-filters forever. On a phone that repaints
+         the whole screen non-stop and stutters. Still animated on desktop. */
+      .hero-bg {
+        animation: none;
+      }
     }
 
     /* White bottom sheet */
@@ -4436,7 +4459,7 @@
           </div>
         </a>
         <div class="nav-actions">
-          <a href="/waitlist" class="nav-signup">Join the waitlist</a>
+          <a href="/waitlist" class="nav-signup">Become the First</a>
         </div>
       </div>
       <ul class="nav-linkss">
@@ -4460,7 +4483,7 @@
     </ul>
 
     <div class="nav-actions">
-      <a href="/waitlist" class="nav-signup">Join the waitlist</a>
+      <a href="/waitlist" class="nav-signup">Become the First</a>
     </div>
   </nav>
 
@@ -4804,7 +4827,7 @@
         </div>
         <div class="cta-actions">
           <div class="row">
-            <a href="/waitlist" class="btn-white">Join the waitlist</a>
+            <a href="/waitlist" class="btn-white">Become the First</a>
           </div>
         </div>
       </div>
