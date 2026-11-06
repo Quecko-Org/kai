@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kai — About</title>
+  <title>About | Kai platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/svg+xml" href="/assets/kai_icon_dark.svg" />
@@ -1218,16 +1218,44 @@
         gap: 18px;
       }
     }
+    /* ─── In-build banner (Nov 2026) ─────────────────── */
+    .hero-announcement {
+      padding: 9px 24px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .hero-announcement a {
+      color: #131f1f;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(19, 31, 31, 0.35);
+      transition: text-decoration-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .hero-announcement a:hover {
+      text-decoration-color: rgba(19, 31, 31, 0.85);
+    }
+
+    @media (max-width: 900px) {
+      .hero-announcement {
+        padding: 8px 16px;
+        font-size: 11px;
+        line-height: 1.45;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- ═══ ANNOUNCEMENT ═══════════════════════════════════════ -->
-   <a class="serieslink" href="/waitlist">
+  <!-- ═══ IN-BUILD BANNER ═══════════════════════════════════════ -->
   <div class="hero-announcement">
-    <span>Kai is launching soon. Join the waitlist for early access.</span>
+    <span>Kai platform is in build. Everything you see here is what we're
+      building. <a href="/waitlist">Become the First</a></span>
   </div>
-  </a>
 
   <!-- ═══ NAV ════════════════════════════════════════════ -->
   <nav id="main-nav">
@@ -1267,9 +1295,11 @@
     </h2>
     <p class="about-text reveal d4">
       Kai isn't an app you open simply to check a balance.<br />
-      It's a responsive layer that coexists with your life.<br />
-      One account that brings your assets together, so you can act simply and
-      quickly, and stay in control.
+      It's a financial layer that coexists with your life.<br />
+      Use it yourself, or let your AI agents use it on your behalf when you
+      choose. One account that brings your assets together, so you can act
+      simply and quickly, and stay in control.<br />
+      Unified finance. Unlocked limits.
     </p>
   </section>
 
@@ -1373,7 +1403,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img class="footer-logo" src="assets/kai_logo_light.svg" alt="Kai" />
-        <p>Financial clarity for everyone. Simple tools, real results.</p>
+        <p>Unified finance. Unlocked limits.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">

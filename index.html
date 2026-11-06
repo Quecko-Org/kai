@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kai platform | Unified finance. Unlocked limits.</title>
-  <meta name="description" content="Kai platform is building the future of finance: fiat, crypto, trading and a card in one place, powered by AI. Become the First." />
+  <title>Kai platform | Humans retain control. Agents execute.</title>
+  <meta name="description" content="Kai platform: fiat, crypto, stocks and cards in one place. Use it your way, or with AI agents when you want. You approve every move. Become the First." />
   <link rel="preload" as="image" href="assets/hero-bg-2.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,8 +20,8 @@
   <meta property="og:locale" content="en_US" />
 
   <meta property="og:url" content="https://www.kai.xyz/" />
-  <meta property="og:title" content="Kai platform: Unified finance. Unlocked limits." />
-  <meta property="og:description" content="One place for fiat, crypto, trading and your card, powered by AI. The future of finance is coming. Become the First." />
+  <meta property="og:title" content="Kai platform: Humans retain control. Agents execute." />
+  <meta property="og:description" content="One place for fiat, crypto, stocks and cards. Use Kai platform yourself, or with AI agents. You stay in control. Become the First." />
 
   <meta property="og:image" content="https://www.kai.xyz/assets/share-image.png" />
   <meta property="og:image:type" content="image/png" />
@@ -29,8 +29,8 @@
   <meta property="og:image:height" content="630" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kai platform: Unified finance. Unlocked limits." />
-  <meta name="twitter:description" content="One place for fiat, crypto, trading and your card, powered by AI. The future of finance is coming. Become the First." />
+  <meta name="twitter:title" content="Kai platform: Humans retain control. Agents execute." />
+  <meta name="twitter:description" content="One place for fiat, crypto, stocks and cards. Use Kai platform yourself, or with AI agents. You stay in control. Become the First." />
   <meta name="twitter:image" content="https://www.kai.xyz/assets/share-image.png" />
 
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap" rel="stylesheet" />
@@ -4420,44 +4420,267 @@
       border-radius: 20px;
     }
 
-    /* ─── "Coming soon" label (Oct 2026) ─────────────────── */
-    .coming-soon {
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 10px;
-      padding: 4px 10px;
-      border-radius: 100px;
-      border: 1px solid rgba(10, 10, 10, 0.18);
-      background: rgba(10, 10, 10, 0.04);
-      font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 500;
-      line-height: 1.3;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(10, 10, 10, 0.65);
-      white-space: nowrap;
-      position: relative;
-      top: -2px;
+    /* ─── HOW IT WORKS + WAYS TO WORK WITH KAI AI (Nov 2026) ─── */
+    .kai-how,
+    .kai-ways {
+      width: 100%;
+      padding: 90px 60px 100px;
     }
 
-    .kai-sec-3.going-dark .coming-soon,
-    .kai-sec-virtual .coming-soon {
-      border-color: rgba(240, 244, 243, 0.28);
-      background: rgba(240, 244, 243, 0.08);
-      color: rgba(240, 244, 243, 0.78);
+    .kai-ways {
+      background: #f5f3ef;
+    }
+
+    .kai-how-inner,
+    .kai-ways-inner {
+      max-width: 1152px;
+      margin: 0 auto;
+    }
+
+    .kai-how-header,
+    .kai-ways-header {
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+
+    .kai-how-title,
+    .kai-ways-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3.4vw, 42px);
+      font-weight: 500;
+      line-height: 1.14;
+      letter-spacing: -0.01em;
+      color: #0a0a0a;
+      margin: 10px 0 0;
+    }
+
+    .kai-ways-lede {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #364153;
+      margin: 16px 0 0;
+      max-width: 620px;
+    }
+
+    /* three steps */
+    .kai-how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+
+    .kai-how-grid::before {
+      content: "";
+      position: absolute;
+      top: 13px;
+      left: 10px;
+      right: 10px;
+      height: 1px;
+      background: rgba(10, 10, 10, 0.12);
+    }
+
+    .kai-how-step {
+      position: relative;
+      padding-top: 42px;
+    }
+
+    .kai-how-step::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 0;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #f5f5f5;
+      border: 2px solid var(--teal, #173e42);
+    }
+
+    .kai-how-num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(10, 10, 10, 0.4);
+      margin: 0 0 10px;
+    }
+
+    .kai-how-step h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: #0a0a0a;
+      margin: 0 0 10px;
+    }
+
+    .kai-how-step p {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.62;
+      color: #364153;
+      margin: 0;
+      max-width: 320px;
+    }
+
+    /* two ways */
+    .kai-ways-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .kai-way {
+      background: #ffffff;
+      border: 1px solid rgba(10, 10, 10, 0.08);
+      border-radius: 20px;
+      padding: 32px 32px 34px;
+    }
+
+    .kai-way h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: #0a0a0a;
+      margin: 0 0 10px;
+    }
+
+    .kai-way p {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.62;
+      color: #364153;
+      margin: 0;
+    }
+
+    .kai-ways-note {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(19, 31, 31, 0.55);
+      margin: 26px 0 0;
+      max-width: 720px;
+    }
+
+    @media (max-width: 1024px) {
+      .kai-how-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px 32px;
+      }
+
+      .kai-how-grid::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .kai-how,
+      .kai-ways {
+        padding: 60px 24px 70px;
+      }
+
+      .kai-how-header,
+      .kai-ways-header {
+        margin-bottom: 36px;
+      }
+
+      .kai-how-grid,
+      .kai-ways-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .kai-how-step {
+        padding-top: 32px;
+      }
+
+      .kai-how-step p,
+      .kai-way p {
+        max-width: none;
+      }
+
+      .kai-way {
+        padding: 24px 22px 26px;
+      }
+    }
+
+    /* ─── In-build banner + hero preview line (Nov 2026) ──── */
+    .hero-announcement {
+      padding: 9px 24px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .hero-announcement a {
+      color: #131f1f;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(19, 31, 31, 0.35);
+      transition: text-decoration-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .hero-announcement a:hover {
+      text-decoration-color: rgba(19, 31, 31, 0.85);
+    }
+
+    .hero-preview-note {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      color: rgba(26, 26, 26, 0.6);
+      margin: 2px 0 0;
+      opacity: 0;
+      animation: heroIntro 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+    }
+
+    .hero.theme-teal .hero-preview-note {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-preview-note {
+        opacity: 1;
+        animation: none;
+        transform: none;
+        filter: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-announcement {
+        padding: 8px 16px;
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .hero-preview-note {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- ═══ ANNOUNCEMENT ═══════════════════════════════════════ -->
-  <a class="serieslink" href="/waitlist">
-    <div class="hero-announcement">
-    <span>Kai is launching soon. Join the waitlist for early access.
-    </span>
+  <!-- ═══ IN-BUILD BANNER ═══════════════════════════════════════ -->
+  <div class="hero-announcement">
+    <span>Kai platform is in build. Everything you see here is what we're
+      building. <a href="/waitlist">Become the First</a></span>
   </div>
-  </a>
 
   <!-- ═══ NAV ════════════════════════════════════════════ -->
   <nav class="desktopnav" id="main-nav">
@@ -4501,11 +4724,13 @@
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1 class="hero-title">Unified &nbsp; Finance.<br />Unlocked &nbsp; Limits.</h1>
+      <h1 class="hero-title">Humans retain control.<br />Agents execute.</h1>
       <p class="hero-sub">
-        Join the waitlist to be among the first to try a financial platform that
-        actually bridges the gap.
+        Use Kai platform your way, or bring your own AI agent. Kai AI works with
+        other agents for you, and you approve what matters. Fiat, crypto, stocks
+        and cards in one place.
       </p>
+      <p class="hero-preview-note">A preview of what's coming</p>
       <div class="hero-dashboard-wrap">
         <div class="hero-dashboard">
           <img src="assets/dashboard.png" alt="Kai dashboard" />
@@ -4550,8 +4775,9 @@
           <div class="cfg-bullet">
             <p class="cfg-bullet-label">Fiat Accounts &amp; Payments</p>
             <p class="cfg-bullet-text">
-              Fiat accounts, stock trading, and dedicated savings - managed
-              from one dashboard.
+              Fiat accounts, stocks trading and dedicated savings, managed from
+              one dashboard. EUR and GBP to start, with USD and more currencies
+              right after.
             </p>
           </div>
           <div class="cfg-bullet">
@@ -4564,8 +4790,8 @@
           <div class="cfg-bullet">
             <p class="cfg-bullet-label">Execution</p>
             <p class="cfg-bullet-text">
-              A system that prepares the move for you, not just shows you data. You
-              approve every action.
+              Kai prepares the move for you. Your AI agent or Kai AI can prepare
+              it too, when you want. You approve every action.
             </p>
           </div>
           <!-- <a class="cfg-link" href="#">Learn more about our tech</a> -->
@@ -4574,11 +4800,95 @@
     </div>
   </section>
 
+  <!-- ═══ SECTION · How it works ═══════════════════════════ -->
+  <section class="kai-how" id="how-it-works">
+    <div class="kai-how-inner">
+      <div class="kai-how-header reveal">
+        <div class="kai-eyebrow">How it works</div>
+        <h2 class="kai-how-title">
+          Three principles. Unified finance. Unlocked limits. Always under your
+          control.
+        </h2>
+      </div>
+
+      <div class="kai-how-grid">
+        <div class="kai-how-step reveal">
+          <p class="kai-how-num">Step 1</p>
+          <h3>You stay the owner</h3>
+          <p>
+            The account belongs to you. People complete identity checks.
+            Businesses complete business verification. You stay in control of
+            your money.
+          </p>
+        </div>
+
+        <div class="kai-how-step reveal d1">
+          <p class="kai-how-num">Step 2</p>
+          <h3>Use Kai your way, or connect an AI agent</h3>
+          <p>
+            Use Kai platform yourself. Or link an AI agent you trust, with
+            permissions you set. Agent connection is still being built.
+          </p>
+        </div>
+
+        <div class="kai-how-step reveal d2">
+          <p class="kai-how-num">Step 3</p>
+          <h3>You approve what matters</h3>
+          <p>
+            Transfers, withdrawals and trades above your thresholds need your
+            confirmation inside Kai. Every action is logged so you can review it
+            later.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION · Ways to work with Kai AI ═══════════════ -->
+  <section class="kai-ways" id="ways">
+    <div class="kai-ways-inner">
+      <div class="kai-ways-header reveal">
+        <h2 class="kai-ways-title">
+          Ways to work with Kai AI
+        </h2>
+        <p class="kai-ways-lede">
+          Use Kai platform yourself anytime. When agent tools arrive, you can
+          also work in these ways:
+        </p>
+      </div>
+
+      <div class="kai-ways-grid">
+        <div class="kai-way reveal">
+          <h3>Bring your own agent</h3>
+          <p>
+            Connect the AI agent you already trust. Give it scoped permissions.
+            It prepares and requests. You confirm sensitive moves in Kai.
+          </p>
+        </div>
+
+        <div class="kai-way reveal d1">
+          <h3>Let Kai AI coordinate</h3>
+          <p>
+            Ask Kai AI to handle a task that spans services, for example travel
+            or a supplier payment. Kai AI coordinates the service agents,
+            manages the funds path and brings every approval back to one place:
+            you.
+          </p>
+        </div>
+      </div>
+
+      <p class="kai-ways-note reveal">
+        Kai AI prepares and requests. It does not manage a discretionary
+        portfolio for you. Actions are logged for review.
+      </p>
+    </div>
+  </section>
+
   <!-- ═══ SECTION 2 · Built for your complete financial picture ═══ -->
   <section class="kai-sec kai-sec-2" id="features">
     <div class="kai-sec-2-inner">
       <div class="kai-sec-2-header reveal">
-        <div class="kai-eyebrow">Everything you need <span class="coming-soon">Coming soon</span></div>
+        <div class="kai-eyebrow">Everything you need</div>
         <h2 class="kai-sec-2-title">
           Kai removes the walls between all asset classes
         </h2>
@@ -4634,7 +4944,7 @@
           </svg>
           <h3>Just-in-time liquidity</h3>
           <p>
-            Your assets stay active and ready to use — no more idle money.
+            Your assets stay active and ready to use. No more idle money.
           </p>
         </div>
         <div class="kai-feature reveal d1">
@@ -4665,8 +4975,10 @@
 
           <h3>Command, don't just click</h3>
           <p>
-            Talk to Kai in plain language to prepare transfers, set rules for your
-            assets or organise your business finances. You approve every action.
+            Talk to Kai AI in plain language to prepare transfers, set rules for
+            your assets or organise your business finances. Your connected agent
+            can do the same within the permissions you set. You approve every
+            action.
           </p>
         </div>
       </div>
@@ -4676,7 +4988,7 @@
   <!-- ═══ SECTION 3 · Run your business like a seasoned pro ═══ -->
   <section class="kai-sec kai-sec-3" id="seasoned">
     <div class="kai-sec-3-inner">
-      <h2 class="kai-sec-3-title reveal">Run your business finances in one place <span class="coming-soon">Coming soon</span></h2>
+      <h2 class="kai-sec-3-title reveal">Run your business finances in one place</h2>
 
       <div class="kai-sec-3-grid">
         <div class="kai-card reveal">
@@ -4710,9 +5022,10 @@
           <div class="kai-card-caption">
             <h4>Smarter Treasury Management</h4>
             <p>
-              Move from manual work to high-level strategy. Set the rules once, and
-              Kai prepares routine treasury tasks for your approval, so you can
-              focus on growth.
+              Move from manual work to high-level strategy. Set the rules once.
+              Kai prepares routine treasury tasks for your approval. Your AI agent
+              or Kai AI can prepare them too, when those tools are ready, so you
+              can focus on growth.
             </p>
           </div>
         </div>
@@ -4735,7 +5048,7 @@
   <!-- ═══ SECTION 4 · Go virtual ════════════════════════════ -->
   <section class="kai-sec-virtual" id="virtual">
     <div class="kai-sec-virtual-inner reveal">
-      <div class="kai-sec-virtual-eyebrow">Credit Card <span class="coming-soon">Coming soon</span></div>
+      <div class="kai-sec-virtual-eyebrow">Credit Card</div>
       <h2 class="kai-sec-virtual-title">Go virtual</h2>
       <div class="virtual-carousel">
         <div class="virtual-slides" id="virtualSlides">
@@ -4748,8 +5061,9 @@
             <!-- <span class="kai-sec-virtual-title">Set automated <br></span> -->
             Set automated card top-ups and daily conversion limits, protect
             specific assets from being sold for spending, and require
-            confirmation for large transactions, providing granular control
-            over your own automated liquidity.
+            confirmation for large transactions. Your AI agent can request
+            top-ups within those rules. You keep granular control over your own
+            automated liquidity.
           </p>
 
           <p class="kai-sec-virtual-lede">
@@ -4786,11 +5100,13 @@
             <!-- <span class="roadmap-date">(Q1 2027)</span> -->
           </p>
           <h3 class="roadmap-phase-title">
-            The Foundation &amp; Retail Entry
+            Foundation &amp; Retail Entry
           </h3>
           <p class="roadmap-focus-label">Focus</p>
           <p class="roadmap-focus-text">
-            Unified Liquidity and operation integrity.
+            One account for EUR and GBP to start, with USD and more currencies
+            right after. Crypto and stocks trading. Prepaid virtual cards.
+            Unified liquidity and solid operations.
           </p>
         </div>
 
@@ -4801,11 +5117,12 @@
             <!-- <span class="roadmap-date">(Q3 2027)</span> -->
           </p>
           <h3 class="roadmap-phase-title">
-            Business &amp; Agentic Orchestration
+            Business &amp; Agent Access
           </h3>
           <p class="roadmap-focus-label">Focus</p>
           <p class="roadmap-focus-text">
-            Corporate Treasury and Intelligent Execution.
+            Business workflows and agent access. Connect your AI agent with
+            permissions you set. User-confirmed execution.
           </p>
         </div>
 
@@ -4813,11 +5130,12 @@
           <div class="roadmap-dot"></div>
           <p class="roadmap-phase-num">Phase 3</p>
           <h3 class="roadmap-phase-title">
-            Scale, Global Reach &amp; Dominance
+            Orchestration &amp; Reach
           </h3>
           <p class="roadmap-focus-label">Focus</p>
           <p class="roadmap-focus-text">
-            Global infrastructure and Proactive Intelligence.
+            Kai AI as orchestrator across service agents. Broader coverage.
+            Proactive assistance you still approve.
           </p>
         </div>
       </div>
@@ -4850,7 +5168,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img class="footer-logo" src="assets/kai_logo_light.svg" alt="Kai" />
-        <p>Financial clarity for everyone. Simple tools, real results.</p>
+        <p>Unified finance. Unlocked limits.</p>
       </div>
 
       <div class="footer-links">
